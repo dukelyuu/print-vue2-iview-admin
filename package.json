@@ -2,7 +2,7 @@
   "name": "vue-admin-echarts",
   "version": "1.0.0",
   "description": "admin echarts",
-  "author": "hanjiangxueying <724518201@qq.com>",
+  "author": "jian.lv <jian.lv@hotmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
