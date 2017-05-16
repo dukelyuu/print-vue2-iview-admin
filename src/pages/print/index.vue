@@ -30,7 +30,6 @@
             return{
                 current: 0,
                 message: "当前正在",
-                toPath: "/table"
               }
         },
         methods:{

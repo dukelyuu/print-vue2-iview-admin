@@ -10,7 +10,7 @@ import Page5 from './pages/nav2/Page5.vue'
 import Page6 from './pages/nav3/Page6.vue'
 import echarts from './pages/charts/echarts.vue'
 import printpage from "./pages/print/index.vue"
-
+import firstpage from "./pages/print/firstpage.vue"
 let routes = [{
     path: '/login',
     component: Login,
@@ -36,7 +36,7 @@ let routes = [{
             children: [
                 // UserHome will be rendered inside User's <router-view>
                 // when /user/:id is matched
-                { path: 'page0', component: Form },
+                { path: 'page0', component: firstpage },
                 { path: 'page1', component: Table },
                 { path: 'page2', component: user },
                 { path: 'page3', component: Page4 },
