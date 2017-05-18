@@ -21,9 +21,7 @@ module.exports = {
         extensions: ['.js', '.vue', '.json'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '@': resolve('src'),
-            'LODOP': resolve('src', '/lib/LodopFuncs.js'),
-            'CLODOP': resolve('src', '/lib/CLodopfuncs.js'),
+            '@': resolve('src')
 
         }
     },
