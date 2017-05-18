@@ -256,7 +256,7 @@ export default {
     },
     createDataBill() {
       LODOP = getLodop();
-      debugger
+      
       LODOP.PRINT_INITA(10, 10, 762, 533, "恩施农村土地确权证");
       LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\11.png");
       LODOP.ADD_PRINT_TEXT(45, 171, 34, 20, this.formItem.control);
