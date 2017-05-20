@@ -23,7 +23,6 @@ let routes = [{
     name: '',
     hidden: true
 },
-//{ path: '/main', component: Main },
 {
     path: '/',
     component: Home,
@@ -53,9 +52,7 @@ let routes = [{
                     } },
             ]
         },
-        // { path: '/table', component: Table, name: '表格' },
-        // { path: '/form', component: Form, name: '表单' },
-        // { path: '/user', component: user, name: '列表' },
+        
     ]
 },
 // {
@@ -90,7 +87,7 @@ let routes = [{
 {
     path: '*',
     hidden: true,
-    redirect: { path: '/404' }
+    redirect: { path: '/print' }
 }
 ];
 
