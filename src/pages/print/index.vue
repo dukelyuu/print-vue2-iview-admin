@@ -3,10 +3,10 @@
         <!--<p>{{message}}</p>-->
         <Steps ref="stepel" :current="current">
             <Step title="打印首页" @click="home"></Step>
-            <Step title="打印第2页" @click="next"></Step>
-            <Step title="打印第3页" @click="next"></Step>
-            <Step title="打印第4页" @click="next"></Step>
-            <Step title="打印末页" @click="next"></Step>
+            <Step title="打印经营地块情况" @click="next"></Step>
+            <Step title="打印经营地块情况(带总面积)" @click="next"></Step>
+            <Step title="打印末页(经营地块情况带填表机关)" @click="next"></Step>
+            <!--<Step title="打印末页" @click="next"></Step>-->
         </Steps>
     
         <div style="height:80%;">
@@ -35,7 +35,7 @@ export default {
         },
         next() {
 
-            if (this.current < 4) {
+            if (this.current < 3) {
                 this.current += 1;
             }
         },
@@ -45,10 +45,10 @@ export default {
     },
     watch: {
         current: function (val, oldVal) {
-            val = val == 5 ? 4 : val
+            val = val == 4 ? 3 : val
             this.$router.push("/print/page" + val)
             val = val == 0 ? '首' : val
-            val = val == 4 || val == 5 ? '末' : val
+            val = val == 3 || val == 4 ? '末' : val
             this.message = "当前正在打印" + val + "页"
 
 
