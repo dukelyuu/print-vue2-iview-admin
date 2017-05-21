@@ -29,6 +29,9 @@
                     <i-button  type="primary" @click="formLoginReset('formLogin')">重置</i-button>
                 </i-col>
             </Row>
+            <Row>
+                <Icon type="ios-download-outline" size="54px"></Icon><a href="http://print.gtscloud.cc/SetupforWin64.zip">下载并安装打印组件</a>
+            </Row>
         </Form-item>
     </i-form>
 </template>
