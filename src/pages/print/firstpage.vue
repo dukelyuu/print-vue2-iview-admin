@@ -20,9 +20,9 @@
             <Date-picker type="date" placeholder="请选择发证日期" v-model="formItem.issuingDate"></Date-picker>
           </i-col>
           <!--<i-col span="2" style="text-align: center">-</i-col>
-                                              <i-col span="11">
-                                                 
-                                              </i-col>-->
+                                                <i-col span="11">
+                                                   
+                                                </i-col>-->
         </Row>
       </Form-item>
       <Form-item label="发包方全称*:">
@@ -44,11 +44,11 @@
         <i-input v-model="formItem.contactPhoneNo" placeholder="请输入联系电话"></i-input>
       </Form-item>
       <Form-item label="经营方式">
-        <Radio-group :model.sync="formItem.operatorType">
-          <Radio label="homeOperation">家庭经营</Radio>
-          <Radio label="collectiveOperation">集体经营</Radio>
-          <Radio label="cooperOperation">合作经营</Radio>
-          <Radio label="otherOperation">其他经营</Radio>
+        <Radio-group v-model="formItem.operatorType">
+          <Radio label="家庭经营">  <span>家庭经营</span></Radio>
+          <Radio label="集体经营"><span>集体经营</span></Radio>
+          <Radio label="合作经营"><span>合作经营</span></Radio>
+          <Radio label="其他经营"><span>其他经营</span></Radio>
         </Radio-group>
       </Form-item>
       <Form-item label="合同编号*:">
@@ -72,7 +72,7 @@
         <i-button type="primary">保存</i-button>
         <i-button type="ghost" style="margin-left: 8px">取消</i-button>
         <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
-        <i-button style="margin-left: 8px" @click="previewPrint">打印预览2</i-button>
+       
         <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
         <i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
         <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
@@ -125,8 +125,8 @@ export default {
       formItem: {
         control: '',
         controlNO: '',
-        operatorType: 'homeOperation',
-        issuingDate: '',
+        operatorType: '家庭经营',
+        issuingDate: new Date(),
         ownerName: '',
         contractorName: '',
         operatorName: '',
@@ -135,24 +135,8 @@ export default {
         contactPhoneNo: '',
         contractNo: '',
         contractVerifyUnit: '',
-        beginDate: '',
-        invalidDate: '',
-        formItem: {
-          control: '',
-          controlNO: '',
-          operatorType: 'homeOperation',
-          issuingDate: '',
-          ownerName: '',
-          contractorName: '',
-          operatorName: '',
-          operatorIDNumber: '',
-          operatorAddress: '',
-          contactPhoneNo: '',
-          contractNo: '',
-          contractVerifyUnit: '',
-          beginDate: '',
-          invalidDate: '',
-        }
+        beginDate: new Date(),
+        invalidDate: new Date(),
       }
     }
   },
@@ -219,13 +203,14 @@ export default {
       LODOP = getLodop();
 
 
+
       LODOP.PRINT_INITA(10, 10, 762, 533, "恩施农村土地确权证");
       LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\11.png");
       LODOP.ADD_PRINT_TEXT(45, 171, 34, 20, "xxxxxx");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(47, 241, 44, 22, "xxxxxx");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(427, 117, 45, 20, "xxxxxx");
+      LODOP.ADD_PRINT_TEXT(429, 117, 45, 20, "xxxxxx");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(429, 186, 25, 20, "xxx");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
@@ -247,17 +232,17 @@ export default {
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(420, 501, 182, 25, "xxxxxx");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(471, 493, 35, 20, "2017");
+      LODOP.ADD_PRINT_TEXT(473, 493, 35, 20, "2017");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(474, 543, 14, 20, "5");
+      LODOP.ADD_PRINT_TEXT(474, 543, 19, 20, "5");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(474, 568, 25, 20, "12");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(475, 617, 35, 20, "2033");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
+      LODOP.ADD_PRINT_TEXT(474, 617, 35, 20, "2033");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(476, 690, 25, 20, "12");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(476, 662, 19, 20, "5");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
 
 
@@ -265,7 +250,7 @@ export default {
     },
     createDataBill() {
       LODOP = getLodop();
-      
+     
       LODOP.PRINT_INITA(10, 10, 762, 533, "恩施农村土地确权证");
       LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\11.png");
       LODOP.ADD_PRINT_TEXT(45, 171, 34, 20, this.formItem.control);
@@ -274,9 +259,9 @@ export default {
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(427, 117, 45, 20, this.formItem.issuingDate.getFullYear());
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(429, 186, 25, 20, this.formItem.issuingDate.getMonth());
+      LODOP.ADD_PRINT_TEXT(429, 186, 25, 20, this.formItem.issuingDate.getMonth() + 1);
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(430, 232, 25, 20, this.formItem.issuingDate.getDay());
+      LODOP.ADD_PRINT_TEXT(430, 232, 25, 20, this.formItem.issuingDate.getDate());
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(55, 508, 170, 25, this.formItem.ownerName);
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
@@ -294,20 +279,19 @@ export default {
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(420, 501, 182, 25, this.formItem.contractVerifyUnit);
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(471, 493, 35, 20, this.formItem.beginDate.getFullYear());
+      LODOP.ADD_PRINT_TEXT(473, 493, 35, 20, this.formItem.beginDate.getFullYear());
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(474, 543, 14, 20, this.formItem.beginDate.getMonth());
+      LODOP.ADD_PRINT_TEXT(474, 543, 19, 20, this.formItem.beginDate.getMonth()+1);
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(474, 568, 25, 20, this.formItem.beginDate.getDay());
+      LODOP.ADD_PRINT_TEXT(474, 568, 25, 20, this.formItem.beginDate.getDate());
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(475, 617, 35, 20, this.formItem.invalidDate.getFullYear());
+      LODOP.ADD_PRINT_TEXT(474, 617, 35, 20, this.formItem.invalidDate.getFullYear());
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(477, 668, 14, 20, this.formItem.invalidDate.getMonth());
+      LODOP.ADD_PRINT_TEXT(476, 690, 25, 20, this.formItem.invalidDate.getDate());
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(476, 690, 25, 20, this.formItem.invalidDate.getDay());
+      LODOP.ADD_PRINT_TEXT(476, 662, 19, 20, this.formItem.invalidDate.getMonth()+1);
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-
-
+     
     }
   }
 }

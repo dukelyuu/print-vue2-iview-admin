@@ -1,20 +1,20 @@
 <template>
   <div style="background:#eee;padding: 20px;">
-     <Form :model="formItem" :label-width="120">
-        <Row>
-         <i-col span="11">
-            <Form-item label="经营地块实测总面积(亩)">
-              <i-input v-model="formItem.totalArea" placeholder="请输入经营地块实测总面积(亩)"></i-input>
-            </Form-item>
-          </i-col>
+    <Form :model="formItem" :label-width="120">
+      <Row>
+        <i-col span="11">
+          <Form-item label="经营地块实测总面积(亩)">
+            <i-input v-model="formItem.totalArea" placeholder="请输入经营地块实测总面积(亩)"></i-input>
+          </Form-item>
+        </i-col>
   
-          <i-col span="11">
-            <Form-item label="经营地块总数">
-              <i-input v-model="formItem.totalNumber" placeholder="请输入经营地块总数"></i-input>
-            </Form-item>
-          </i-col>
-        </Row>
-      </Form>
+        <i-col span="11">
+          <Form-item label="经营地块总数">
+            <i-input v-model="formItem.totalNumber" placeholder="请输入经营地块总数"></i-input>
+          </Form-item>
+        </i-col>
+      </Row>
+    </Form>
     <Table size="small" ref="table" height="30" :columns="tableColumns"></Table>
   
     <div>
@@ -38,7 +38,7 @@
           </i-col>
           <i-col span="5">
             <Form-item l>
-              <Select v-model="formItem.ifBasefarm" >
+              <Select v-model="formItem.ifBasefarm">
                 <Option value="是" label="是">
                   <span>是</span>
                   <span style="float:right;color:#ccc">Yes</span>
@@ -47,7 +47,7 @@
                   <span>否</span>
                   <span style="float:right;color:#ccc">No</span>
                 </Option>
-                
+  
               </Select>
             </Form-item>
           </i-col>
@@ -87,7 +87,7 @@
           </i-col>
           <i-col span="5">
             <Form-item l>
-              <Select v-model="formItem.ifBasefarm2" >
+              <Select v-model="formItem.ifBasefarm2">
                 <Option value="是" label="是">
                   <span>是</span>
                   <span style="float:right;color:#ccc">Yes</span>
@@ -96,7 +96,7 @@
                   <span>否</span>
                   <span style="float:right;color:#ccc">No</span>
                 </Option>
-                
+  
               </Select>
             </Form-item>
           </i-col>
@@ -136,7 +136,7 @@
           </i-col>
           <i-col span="5">
             <Form-item l>
-              <Select v-model="formItem.ifBasefarm3" >
+              <Select v-model="formItem.ifBasefarm3">
                 <Option value="是" label="是">
                   <span>是</span>
                   <span style="float:right;color:#ccc">Yes</span>
@@ -145,7 +145,7 @@
                   <span>否</span>
                   <span style="float:right;color:#ccc">No</span>
                 </Option>
-                
+  
               </Select>
             </Form-item>
           </i-col>
@@ -185,7 +185,7 @@
           </i-col>
           <i-col span="5">
             <Form-item l>
-              <Select v-model="formItem.ifBasefarm4" >
+              <Select v-model="formItem.ifBasefarm4">
                 <Option value="是" label="是">
                   <span>是</span>
                   <span style="float:right;color:#ccc">Yes</span>
@@ -194,7 +194,7 @@
                   <span>否</span>
                   <span style="float:right;color:#ccc">No</span>
                 </Option>
-                
+  
               </Select>
             </Form-item>
           </i-col>
@@ -234,7 +234,7 @@
           </i-col>
           <i-col span="5">
             <Form-item l>
-              <Select v-model="formItem.ifBasefarm5" >
+              <Select v-model="formItem.ifBasefarm5">
                 <Option value="是" label="是">
                   <span>是</span>
                   <span style="float:right;color:#ccc">Yes</span>
@@ -243,7 +243,7 @@
                   <span>否</span>
                   <span style="float:right;color:#ccc">No</span>
                 </Option>
-                
+  
               </Select>
             </Form-item>
           </i-col>
@@ -283,7 +283,7 @@
           </i-col>
           <i-col span="5">
             <Form-item l>
-              <Select v-model="formItem.ifBasefarm6" >
+              <Select v-model="formItem.ifBasefarm6">
                 <Option value="是" label="是">
                   <span>是</span>
                   <span style="float:right;color:#ccc">Yes</span>
@@ -292,7 +292,7 @@
                   <span>否</span>
                   <span style="float:right;color:#ccc">No</span>
                 </Option>
-                
+  
               </Select>
             </Form-item>
           </i-col>
@@ -372,7 +372,7 @@ export default {
       ifBasefarm: '',
       east: '',
       west: '',
-      south:'',
+      south: '',
       north: '',
       tableColumns: [
 
@@ -494,7 +494,7 @@ export default {
         }
 
       ],
-      tableData:[
+      tableData: [
       ],
       formItem: {
         totalArea: 0,
@@ -628,33 +628,100 @@ export default {
 
       LODOP.PRINT_INITA(10, 10, 762, 533, "恩施农村土地确权证");
       LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\2 (2).jpg");
-      LODOP.ADD_PRINT_TEXT(97, 67, 44, 55, "xxxxxx");
+      LODOP.ADD_PRINT_TEXT(96, 68, 44, 55, "11");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(94, 115, 44, 57, "xxxxxx");
+      LODOP.ADD_PRINT_TEXT(96, 115, 44, 57, "12");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(402, 117, 45, 55, "xxxxx");
+      LODOP.ADD_PRINT_TEXT(402, 112, 50, 55, "62");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(402, 164, 47, 55, "xxx");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(401, 216, 44, 56, "xx");
+      LODOP.ADD_PRINT_TEXT(402, 164, 47, 55, "63");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(93, 165, 44, 57, "xxxxxx");
+      LODOP.ADD_PRINT_TEXT(95, 165, 44, 57, "13");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(92, 214, 44, 57, "xxxxxx");
+      LODOP.ADD_PRINT_TEXT(94, 214, 44, 57, "1是");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(92, 279, 74, 57, "xxxxxx");
+      LODOP.ADD_PRINT_TEXT(156, 66, 45, 56, "21");
+      LODOP.ADD_PRINT_TEXT(156, 115, 45, 56, "22");
+      LODOP.ADD_PRINT_TEXT(156, 165, 45, 56, "23");
+      LODOP.ADD_PRINT_TEXT(155, 215, 45, 56, "2是");
+      LODOP.ADD_PRINT_TEXT(197, 285, 70, 15, "2n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(181, 285, 70, 16, "2s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(136, 284, 70, 15, "1n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(121, 284, 70, 15, "1s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(91, 284, 70, 15, "1e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(106, 284, 70, 15, "1w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(153, 285, 70, 15, "2e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(168, 285, 70, 14, "2w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(402, 65, 45, 55, "61");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(156, 66, 45, 56, "");
+      LODOP.ADD_PRINT_TEXT(462, 64, 48, 57, "71");
+      LODOP.ADD_PRINT_TEXT(463, 116, 47, 55, "72");
+      LODOP.ADD_PRINT_TEXT(463, 166, 47, 55, "73");
+      LODOP.ADD_PRINT_TEXT(463, 216, 47, 55, "7是");
+      LODOP.ADD_PRINT_TEXT(277, 215, 47, 55, "4是");
+      LODOP.ADD_PRINT_TEXT(277, 165, 47, 55, "43");
+      LODOP.ADD_PRINT_TEXT(277, 115, 47, 55, "42");
+      LODOP.ADD_PRINT_TEXT(276, 63, 48, 57, "41");
+      LODOP.ADD_PRINT_TEXT(217, 214, 47, 55, "3是");
+      LODOP.ADD_PRINT_TEXT(216, 166, 47, 55, "33");
+      LODOP.ADD_PRINT_TEXT(216, 116, 47, 55, "32");
+      LODOP.ADD_PRINT_TEXT(215, 64, 48, 57, "31");
+      LODOP.ADD_PRINT_TEXT(339, 214, 47, 55, "5是");
+      LODOP.ADD_PRINT_TEXT(339, 164, 47, 55, "53");
+      LODOP.ADD_PRINT_TEXT(339, 114, 47, 55, "52");
+      LODOP.ADD_PRINT_TEXT(338, 64, 48, 57, "51");
+      LODOP.ADD_PRINT_TEXT(501, 285, 70, 15, "7n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(485, 285, 70, 16, "7s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(472, 285, 70, 14, "7w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(457, 285, 70, 15, "7e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(395, 285, 70, 15, "6e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(410, 285, 70, 14, "6w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(423, 285, 70, 16, "6s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(439, 285, 70, 15, "6n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(378, 286, 70, 15, "5n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(362, 286, 70, 16, "5s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(349, 286, 70, 14, "5w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(334, 286, 70, 15, "5e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(317, 286, 70, 15, "4n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(301, 286, 70, 16, "4s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(288, 286, 70, 14, "4w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(273, 286, 70, 15, "4e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(258, 286, 70, 15, "3n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(242, 286, 70, 16, "3s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(229, 286, 70, 14, "3w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(214, 286, 70, 15, "3e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(402, 214, 47, 55, "6是");
 
-      LODOP.ADD_PRINT_TEXT(156, 114, 45, 56, "");
-      LODOP.ADD_PRINT_TEXT(156, 165, 45, 56, "");
-      LODOP.ADD_PRINT_TEXT(156, 215, 45, 56, "");
-      LODOP.ADD_PRINT_TEXT(195, 286, 70, 16, "444");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(180, 286, 70, 16, "xxxxxx");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
 
 
 
@@ -664,47 +731,101 @@ export default {
       LODOP = getLodop();
 
       LODOP.PRINT_INITA(10, 10, 762, 533, "恩施农村土地确权证");
-      LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\11.png");
-      LODOP.ADD_PRINT_TEXT(45, 171, 34, 20, this.formItem.control);
+      LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\2 (2).jpg");
+      LODOP.ADD_PRINT_TEXT(96, 68, 44, 55, "11");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(44, 244, 44, 22, this.formItem.controlNO);
+      LODOP.ADD_PRINT_TEXT(96, 115, 44, 57, "12");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(427, 117, 45, 20, this.formItem.issuingDate);
+      LODOP.ADD_PRINT_TEXT(402, 112, 50, 55, "62");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(429, 186, 25, 20, this.formItem.issuingDate);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(430, 232, 25, 20, this.formItem.issuingDate);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(55, 508, 170, 25, this.formItem.ownerName);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(97, 505, 170, 25, this.formItem.contractorName);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(141, 503, 170, 25, this.formItem.operatorName);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(188, 505, 170, 25, this.formItem.operatorIDNumber);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(236, 504, 170, 25, this.formItem.operatorAddress);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(284, 501, 170, 25, this.formItem.contactPhoneNo);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(381, 500, 182, 20, this.formItem.contractNo);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(420, 501, 182, 25, this.formItem.contractVerifyUnit);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(471, 493, 35, 20, "2017");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(474, 543, 14, 20, "5");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(474, 568, 25, 20, "12");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(475, 617, 35, 20, "2033");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(477, 668, 14, 20, "55");
+      LODOP.ADD_PRINT_TEXT(402, 164, 47, 55, "63");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
       LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(476, 690, 25, 20, "12");
+      LODOP.ADD_PRINT_TEXT(95, 165, 44, 57, "13");
       LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(94, 214, 44, 57, "1是");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(156, 66, 45, 56, "21");
+      LODOP.ADD_PRINT_TEXT(156, 115, 45, 56, "22");
+      LODOP.ADD_PRINT_TEXT(156, 165, 45, 56, "23");
+      LODOP.ADD_PRINT_TEXT(155, 215, 45, 56, "2是");
+      LODOP.ADD_PRINT_TEXT(197, 285, 70, 15, "2n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(181, 285, 70, 16, "2s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(136, 284, 70, 15, "1n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(121, 284, 70, 15, "1s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(91, 284, 70, 15, "1e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(106, 284, 70, 15, "1w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(153, 285, 70, 15, "2e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(168, 285, 70, 14, "2w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(402, 65, 45, 55, "61");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(462, 64, 48, 57, "71");
+      LODOP.ADD_PRINT_TEXT(463, 116, 47, 55, "72");
+      LODOP.ADD_PRINT_TEXT(463, 166, 47, 55, "73");
+      LODOP.ADD_PRINT_TEXT(463, 216, 47, 55, "7是");
+      LODOP.ADD_PRINT_TEXT(277, 215, 47, 55, "4是");
+      LODOP.ADD_PRINT_TEXT(277, 165, 47, 55, "43");
+      LODOP.ADD_PRINT_TEXT(277, 115, 47, 55, "42");
+      LODOP.ADD_PRINT_TEXT(276, 63, 48, 57, "41");
+      LODOP.ADD_PRINT_TEXT(217, 214, 47, 55, "3是");
+      LODOP.ADD_PRINT_TEXT(216, 166, 47, 55, "33");
+      LODOP.ADD_PRINT_TEXT(216, 116, 47, 55, "32");
+      LODOP.ADD_PRINT_TEXT(215, 64, 48, 57, "31");
+      LODOP.ADD_PRINT_TEXT(339, 214, 47, 55, "5是");
+      LODOP.ADD_PRINT_TEXT(339, 164, 47, 55, "53");
+      LODOP.ADD_PRINT_TEXT(339, 114, 47, 55, "52");
+      LODOP.ADD_PRINT_TEXT(338, 64, 48, 57, "51");
+      LODOP.ADD_PRINT_TEXT(501, 285, 70, 15, "7n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(485, 285, 70, 16, "7s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(472, 285, 70, 14, "7w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(457, 285, 70, 15, "7e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(395, 285, 70, 15, "6e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(410, 285, 70, 14, "6w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(423, 285, 70, 16, "6s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(439, 285, 70, 15, "6n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(378, 286, 70, 15, "5n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(362, 286, 70, 16, "5s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(349, 286, 70, 14, "5w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(334, 286, 70, 15, "5e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(317, 286, 70, 15, "4n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(301, 286, 70, 16, "4s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(288, 286, 70, 14, "4w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(273, 286, 70, 15, "4e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(258, 286, 70, 15, "3n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(242, 286, 70, 16, "3s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(229, 286, 70, 14, "3w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(214, 286, 70, 15, "3e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(402, 214, 47, 55, "6是");
+
 
 
     }
