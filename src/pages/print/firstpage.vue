@@ -1,7 +1,7 @@
 <template>
   <div style="background:#eee;padding: 20px">
     <i-form :model="formItem" :label-width="80">
-      <Row>
+     <!-- <Row>
         <i-col span="11">
           <Form-item label="农地经营权*:">
             <i-input v-model="formItem.control" placeholder="请输入农地经营权"></i-input>
@@ -20,12 +20,11 @@
             <Date-picker type="date" placeholder="请选择发证日期" v-model="formItem.issuingDate"></Date-picker>
           </i-col>
           <!--<i-col span="2" style="text-align: center">-</i-col>
-                                                            <i-col span="11">
-                                                               
-                                                            </i-col>-->
+                                                              <i-col span="11">
+                                                                 
+                                                              </i-col>
         </Row>
       </Form-item>
-      <img src="/static/img/发包.png" />
       <Form-item label="发包方全称*:">
         <i-input v-model="formItem.ownerName" placeholder="请输入发包方全称"></i-input>
       </Form-item>
@@ -83,7 +82,8 @@
         <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
   
         <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
-        <i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
+        <!--<i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
+        <i-button style="margin-left: 8px" @click="onPrintFirstPage">打印首页</i-button>-->
         <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
   
         <i-button style="margin-left: 8px" type="primary" @click="prev">上一页</i-button>
@@ -160,8 +160,8 @@ export default {
       this.createDataBill();
       LODOP.PREVIEW();
     },
-
-
+    //打印首页
+     onPrintFirstPage(){},
     //打印维护
     onSetup() {
       this.printerMaintenance()
@@ -212,69 +212,54 @@ export default {
       LODOP = getLodop();
 
 
-//不用替换
-LODOP.ADD_PRINT_SETUP_BKIMG("<img border='0' src='../assets/发包.png'>");  
 
-LODOP.PRINT_INITA(10,10,1054,715,"恩施农村土地确权证");
 
-LODOP.ADD_PRINT_TEXT(484,64,183,59,"发包方全称");
-LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(486,155,190,59,"承包方姓名");
-LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(483,254,268,63,"经营方姓名");
-LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(482,344,186,64,"经营方身份证号");
-LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(483,444,273,61,"经营方住址");
-LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(485,534,186,60,"联系电话");
-LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(484,721,199,59,"合同编号");
-LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(480,812,240,60,"合同鉴证单位");
-LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(450,938,60,30,"2017");
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(380,943,44,30,"5");
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(326,943,40,30,"12");
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(218,940,55,25,"2033");
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(90,939,51,25,"12");
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(141,942,49,30,"5");
-LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(171,624,21,20,"√");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(172,666,23,20,"√");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(363,624,22,20,"√");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(364,667,19,20,"√");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+
+      LODOP.PRINT_INITA(10, 10, 1054, 715, "恩施农村土地确权证");
+      LODOP.ADD_PRINT_SETUP_BKIMG("../../assets/发包.png");
+      LODOP.ADD_PRINT_TEXT(484, 64, 183, 59, "发包方全称");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(486, 155, 190, 59, "承包方姓名");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(483, 254, 268, 63, "经营方姓名");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(482, 344, 186, 64, "经营方身份证号");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(483, 444, 273, 61, "经营方住址");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(485, 534, 186, 60, "联系电话");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(484, 721, 199, 59, "合同编号");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(480, 812, 240, 60, "合同鉴证单位");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(450, 938, 60, 30, "2017");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(380, 943, 44, 30, "5");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(326, 943, 40, 30, "12");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(218, 940, 55, 25, "2033");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(90, 939, 51, 25, "12");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(141, 942, 49, 30, "5");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+
 
 
 
@@ -365,7 +350,9 @@ else if(opType == "4")
   LODOP.SET_PRINT_STYLEA(0,"Angle",90);
 }
 
-    }
+    },
+    createFirstFullBill(){},
+    createFirstDataBill(){}
   }
 }
 </script>
