@@ -200,7 +200,7 @@
             </Form-item>
           </i-col>
         </Row>
-        <Form-item label="填表机关*:" :label-width="80">
+        <Form-item label="填表日期*:" :label-width="80">
           <Row>
             <i-col span="23">
               <Date-picker type="date" placeholder="请选择填表日期" v-model="formItem.issuingDate"></Date-picker>
