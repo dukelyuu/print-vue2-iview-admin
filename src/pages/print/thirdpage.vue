@@ -313,6 +313,398 @@
             </Form-item>
           </i-col>
         </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName7" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO7" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea7" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm7">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east7" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west7" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south7" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north7" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName8" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO8" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea8" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm8">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east8" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west8" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south8" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north8" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName9" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO9" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea9" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm9">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east9" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west9" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south9" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north9" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName10" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO10" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea10" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm6">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east10" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west10" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south10" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north10" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName11" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO11" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea11" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm11">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east11" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west11" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south11" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north11" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName12" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO12" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea12" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm12">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east12" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west12" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south12" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north12" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName13" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO13" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea13" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm13">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east6" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west6" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south6" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north6" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName14" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO14" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea14" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm14">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east6" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west6" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south6" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north6" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
         <Form-item>
           <i-button type="primary" @click="save">保存</i-button>
           <i-button type="ghost" style="margin-left: 8px">取消</i-button>
@@ -555,6 +947,62 @@ export default {
         west7: '',
         south7: '',
         north7: '',
+        landName8: '',
+        landNO8: '',
+        realArea8: 0,
+        ifBasefarm8: '',
+        east8: '',
+        west8: '',
+        south8: '',
+        north8: '',
+        landName9: '',
+        landNO9: '',
+        realArea9: 0,
+        ifBasefarm9: '',
+        east9: '',
+        west9: '',
+        south9: '',
+        north9: '',
+        landName10: '',
+        landNO10: '',
+        realArea10: 0,
+        ifBasefarm10: '',
+        east10: '',
+        west10: '',
+        south10: '',
+        north10: '',
+        landName11: '',
+        landNO11: '',
+        realArea11: 0,
+        ifBasefarm11: '',
+        east11: '',
+        west11: '',
+        south11: '',
+        north11: '',
+        landName12: '',
+        landNO12: '',
+        realArea12: 0,
+        ifBasefarm12: '',
+        east12: '',
+        west12: '',
+        south12: '',
+        north12: '',
+        landName13: '',
+        landNO13: '',
+        realArea13: 0,
+        ifBasefarm13: '',
+        east13: '',
+        west13: '',
+        south13: '',
+        north13: '',
+        landName14: '',
+        landNO14: '',
+        realArea14: 0,
+        ifBasefarm14: '',
+        east14: '',
+        west14: '',
+        south14: '',
+        north14: '',
       }
     }
   },
