@@ -313,15 +313,408 @@
             </Form-item>
           </i-col>
         </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName7" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO7" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea7" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm7">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east7" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west7" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south7" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north7" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName8" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO8" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea8" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm8">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east8" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west8" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south8" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north8" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName9" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO9" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea9" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm9">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east9" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west9" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south9" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north9" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName10" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO10" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea10" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm6">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east10" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west10" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south10" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north10" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName11" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO11" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea11" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm11">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east11" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west11" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south11" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north11" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName12" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO12" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea12" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm12">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east12" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west12" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south12" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north12" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName13" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO13" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea13" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm13">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east6" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west6" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south6" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north6" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
+        <Row>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landName14" placeholder="请输入地块名称"></i-input>
+            </Form-item>
+          </i-col>
+  
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.landNO14" placeholder="请输入地块编码"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="4">
+            <Form-item>
+              <i-input v-model="formItem.realArea14" placeholder="请输入实测面积"></i-input>
+            </Form-item>
+          </i-col>
+          <i-col span="5">
+            <Form-item l>
+              <Select v-model="formItem.ifBasefarm14">
+                <Option value="是" label="是">
+                  <span>是</span>
+                  <span style="float:right;color:#ccc">Yes</span>
+                </Option>
+                <Option value="否" label="否">
+                  <span>否</span>
+                  <span style="float:right;color:#ccc">No</span>
+                </Option>
+  
+              </Select>
+            </Form-item>
+          </i-col>
+          <i-col span="6">
+            <Form-item>
+              <Row>
+                <i-input v-model="formItem.east6" placeholder="东："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.west6" placeholder="西："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.south6" placeholder="南："></i-input>
+              </Row>
+              <Row>
+                <i-input v-model="formItem.north6" placeholder="北："></i-input>
+              </Row>
+            </Form-item>
+          </i-col>
+        </Row>
         <Form-item>
           <i-button type="primary" @click="save">保存</i-button>
           <i-button type="ghost" style="margin-left: 8px">取消</i-button>
           <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
-          
+          <i-button style="margin-left: 8px" @click="previewPrintFullWithArea">打印预览(带面积)</i-button>
+          <i-button style="margin-left: 8px" @click="printDesignWithArea">打印设计(带面积)</i-button>
           <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
           <!--<i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>-->
           <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
-  
+          <i-button style="margin-left: 8px" @click="onPrintWithArea">选择打印(带面积)</i-button>
           <i-button style="margin-left: 8px" type="primary" @click="prev">上一页</i-button>
           <i-button style="margin-left: 8px" type="primary" @click="next">下一页</i-button>
           <i-button style="margin-left: 8px" type="primary" @click="home">首页</i-button>
@@ -555,6 +948,62 @@ export default {
         west7: '',
         south7: '',
         north7: '',
+        landName8: '',
+        landNO8: '',
+        realArea8: 0,
+        ifBasefarm8: '',
+        east8: '',
+        west8: '',
+        south8: '',
+        north8: '',
+        landName9: '',
+        landNO9: '',
+        realArea9: 0,
+        ifBasefarm9: '',
+        east9: '',
+        west9: '',
+        south9: '',
+        north9: '',
+        landName10: '',
+        landNO10: '',
+        realArea10: 0,
+        ifBasefarm10: '',
+        east10: '',
+        west10: '',
+        south10: '',
+        north10: '',
+        landName11: '',
+        landNO11: '',
+        realArea11: 0,
+        ifBasefarm11: '',
+        east11: '',
+        west11: '',
+        south11: '',
+        north11: '',
+        landName12: '',
+        landNO12: '',
+        realArea12: 0,
+        ifBasefarm12: '',
+        east12: '',
+        west12: '',
+        south12: '',
+        north12: '',
+        landName13: '',
+        landNO13: '',
+        realArea13: 0,
+        ifBasefarm13: '',
+        east13: '',
+        west13: '',
+        south13: '',
+        north13: '',
+        landName14: '',
+        landNO14: '',
+        realArea14: 0,
+        ifBasefarm14: '',
+        east14: '',
+        west14: '',
+        south14: '',
+        north14: '',
       }
     }
   },
@@ -566,6 +1015,11 @@ export default {
     //打印预览
     previewPrintFull() {
       this.createDataBill();
+      LODOP.PREVIEW();
+    },
+    //打印预览带面积
+    previewPrintFullWithArea() {
+      this.createDataBillWithArea();
       LODOP.PREVIEW();
     },
     //打印预览2
@@ -582,6 +1036,10 @@ export default {
     //选择打印
     onPrint() {
       this.realPrint()
+    },
+    //选择打印带面积
+    onPrintWithArea() {
+      this.realPrintWithArea()
     },
     prev() {
       if (this.$parent.$data.current > 0) {
@@ -604,6 +1062,13 @@ export default {
       //		LODOP.SET_SHOW_MODE("TEXT_SHOW_BORDER",1); //设置字符编辑框默认为single
       LODOP.PRINT_DESIGN();
     },
+    //打印设计带面积
+    printDesignWithArea() {
+      this.createFullBillWithArea();
+      //		LODOP.SET_SHOW_MODE("HIDE_ITEM_LIST",true);//设置对象列表默认处于关闭状态
+      //		LODOP.SET_SHOW_MODE("TEXT_SHOW_BORDER",1); //设置字符编辑框默认为single
+      LODOP.PRINT_DESIGN();
+    },
     printerMaintenance() {
       LODOP.PRINT_DESIGN();
     },
@@ -621,11 +1086,22 @@ export default {
       else
         alert("放弃打印！");
     },
+    realPrintWithArea() {
+      this.createDataBillWithArea();
+      //云打印C-Lodop返回结果用回调函数:
+      if (LODOP.CVERSION) {
+        CLODOP.On_Return = function (TaskID, Value) { if (Value) alert("已发出实际打印命令！"); else alert("放弃打印！"); };
+        LODOP.PRINTA();
+        return;
+      };
+      //控件返回结果用语句本身：
+      if (LODOP.PRINTA())
+        alert("已发出实际打印命令！");
+      else
+        alert("放弃打印！");
+    },
     createFullBill() {
       LODOP = getLodop();
-
-
-
       LODOP.PRINT_INITA(10, 10, 762, 545, "恩施农村土地确权证");
       LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\44.png");
       LODOP.ADD_PRINT_TEXT(149, 58, 44, 55, "11");
@@ -711,17 +1187,9 @@ export default {
       LODOP.ADD_PRINT_TEXT(484, 204, 47, 55, "6是");
       LODOP.ADD_PRINT_TEXT(39, 160, 94, 52, "总面积");
       LODOP.ADD_PRINT_TEXT(37, 312, 39, 57, "地块总数");
-  
-
-
-
-
-
-
     },
     createDataBill() {
       LODOP = getLodop();
-
       LODOP.PRINT_INITA(10, 10, 762, 545, "恩施农村土地确权证");
       LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\44.png");
       LODOP.ADD_PRINT_TEXT(149, 58, 44, 55, this.formItem.landName);
@@ -804,14 +1272,185 @@ export default {
       LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
       LODOP.ADD_PRINT_TEXT(280, 278, 70, 15, this.formItem.east3);
       LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(484, 204, 47, 55,  this.formItem.ifBasefarm6);
+      LODOP.ADD_PRINT_TEXT(484, 204, 47, 55, this.formItem.ifBasefarm6);
       LODOP.ADD_PRINT_TEXT(39, 160, 94, 52, this.formItem.totalArea);
       LODOP.ADD_PRINT_TEXT(37, 312, 39, 57, this.formItem.totalNumber);
-     
-
-
-
-
+    },
+    createFullBillWithArea() {
+      LODOP = getLodop();
+      LODOP.PRINT_INITA(10, 10, 762, 545, "恩施农村土地确权证");
+      LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\44.png");
+      LODOP.ADD_PRINT_TEXT(149, 58, 44, 55, "11");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(148, 109, 44, 57, "12");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(482, 102, 50, 55, "62");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(482, 154, 47, 55, "63");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(149, 160, 44, 56, "13");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(149, 210, 44, 57, "1是");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(213, 56, 45, 56, "21");
+      LODOP.ADD_PRINT_TEXT(214, 107, 45, 56, "22");
+      LODOP.ADD_PRINT_TEXT(214, 158, 45, 56, "23");
+      LODOP.ADD_PRINT_TEXT(214, 209, 45, 56, "2是");
+      LODOP.ADD_PRINT_TEXT(259, 279, 70, 15, "2n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(243, 279, 70, 16, "2s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(195, 278, 70, 15, "1n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(180, 278, 70, 15, "1s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(150, 278, 70, 15, "1e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(165, 278, 70, 15, "1w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(215, 279, 70, 15, "2e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(230, 279, 70, 14, "2w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(482, 55, 45, 55, "61");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(350, 206, 47, 55, "4是");
+      LODOP.ADD_PRINT_TEXT(350, 155, 47, 55, "43");
+      LODOP.ADD_PRINT_TEXT(349, 104, 47, 55, "42");
+      LODOP.ADD_PRINT_TEXT(346, 52, 48, 57, "41");
+      LODOP.ADD_PRINT_TEXT(282, 207, 47, 55, "3是");
+      LODOP.ADD_PRINT_TEXT(281, 156, 47, 55, "33");
+      LODOP.ADD_PRINT_TEXT(281, 106, 47, 55, "32");
+      LODOP.ADD_PRINT_TEXT(278, 54, 48, 57, "31");
+      LODOP.ADD_PRINT_TEXT(417, 205, 47, 55, "5是");
+      LODOP.ADD_PRINT_TEXT(417, 155, 47, 55, "53");
+      LODOP.ADD_PRINT_TEXT(416, 104, 47, 55, "52");
+      LODOP.ADD_PRINT_TEXT(414, 53, 48, 57, "51");
+      LODOP.ADD_PRINT_TEXT(480, 278, 70, 15, "6e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(495, 278, 70, 14, "6w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(508, 278, 70, 16, "6s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(524, 278, 70, 15, "6n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(458, 277, 70, 15, "5n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(442, 277, 70, 16, "5s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(428, 277, 70, 14, "5w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(413, 277, 70, 15, "5e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(391, 279, 70, 15, "4n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(375, 279, 70, 16, "4s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(362, 279, 70, 14, "4w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(348, 279, 70, 15, "4e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(324, 278, 70, 15, "3n");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(308, 278, 70, 16, "3s");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(295, 278, 70, 14, "3w");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(280, 278, 70, 15, "3e");
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(484, 204, 47, 55, "6是");
+      LODOP.ADD_PRINT_TEXT(39, 160, 94, 52, "总面积");
+      LODOP.ADD_PRINT_TEXT(37, 312, 39, 57, "地块总数");
+    },
+    createDataBillWithArea() {
+      LODOP = getLodop();
+      LODOP.PRINT_INITA(10, 10, 762, 545, "恩施农村土地确权证");
+      LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\44.png");
+      LODOP.ADD_PRINT_TEXT(149, 58, 44, 55, this.formItem.landName);
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(148, 109, 44, 57, this.formItem.landNO);
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(482, 102, 50, 55, this.formItem.landNO6);
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(482, 154, 47, 55, this.formItem.realArea6);
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(149, 160, 44, 56, this.formItem.realArea);
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(149, 210, 44, 57, this.formItem.ifBasefarm);
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(213, 56, 45, 56, this.formItem.landName2);
+      LODOP.ADD_PRINT_TEXT(214, 107, 45, 56, this.formItem.landNO2);
+      LODOP.ADD_PRINT_TEXT(214, 158, 45, 56, this.formItem.realArea2);
+      LODOP.ADD_PRINT_TEXT(214, 209, 45, 56, this.formItem.ifBasefarm2);
+      LODOP.ADD_PRINT_TEXT(259, 279, 70, 15, this.formItem.north2);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(243, 279, 70, 16, this.formItem.south2);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(195, 278, 70, 15, this.formItem.north);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(180, 278, 70, 15, this.formItem.south);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(150, 278, 70, 15, this.formItem.east);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(165, 278, 70, 15, this.formItem.west);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(215, 279, 70, 15, this.formItem.east2);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(230, 279, 70, 14, this.formItem.west2);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(482, 55, 45, 55, this.formItem.landName6);
+      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
+      LODOP.ADD_PRINT_TEXT(350, 206, 47, 55, this.formItem.ifBasefarm4);
+      LODOP.ADD_PRINT_TEXT(350, 155, 47, 55, this.formItem.realArea4);
+      LODOP.ADD_PRINT_TEXT(349, 104, 47, 55, this.formItem.landNO4);
+      LODOP.ADD_PRINT_TEXT(346, 52, 48, 57, this.formItem.landName4);
+      LODOP.ADD_PRINT_TEXT(282, 207, 47, 55, this.formItem.ifBasefarm3);
+      LODOP.ADD_PRINT_TEXT(281, 156, 47, 55, this.formItem.realArea3);
+      LODOP.ADD_PRINT_TEXT(281, 106, 47, 55, this.formItem.landNO3);
+      LODOP.ADD_PRINT_TEXT(278, 54, 48, 57, this.formItem.landName3);
+      LODOP.ADD_PRINT_TEXT(417, 205, 47, 55, this.formItem.ifBasefarm5);
+      LODOP.ADD_PRINT_TEXT(417, 155, 47, 55, this.formItem.realArea5);
+      LODOP.ADD_PRINT_TEXT(416, 104, 47, 55, this.formItem.landNO5);
+      LODOP.ADD_PRINT_TEXT(414, 53, 48, 57, this.formItem.landName5);
+      LODOP.ADD_PRINT_TEXT(480, 278, 70, 15, this.formItem.east6);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(495, 278, 70, 14, this.formItem.west6);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(508, 278, 70, 16, this.formItem.south6);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(524, 278, 70, 15, this.formItem.north6);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(458, 277, 70, 15, this.formItem.north5);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(442, 277, 70, 16, this.formItem.south5);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(428, 277, 70, 14, this.formItem.west5);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(413, 277, 70, 15, this.formItem.east5);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(391, 279, 70, 15, this.formItem.north4);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(375, 279, 70, 16, this.formItem.south4);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(362, 279, 70, 14, this.formItem.west4);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(348, 279, 70, 15, this.formItem.east4);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(324, 278, 70, 15, this.formItem.north3);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(308, 278, 70, 16, this.formItem.south3);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(295, 278, 70, 14, this.formItem.west3);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(280, 278, 70, 15, this.formItem.east3);
+      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
+      LODOP.ADD_PRINT_TEXT(484, 204, 47, 55, this.formItem.ifBasefarm6);
+      LODOP.ADD_PRINT_TEXT(39, 160, 94, 52, this.formItem.totalArea);
+      LODOP.ADD_PRINT_TEXT(37, 312, 39, 57, this.formItem.totalNumber);
     }
   }
 }

@@ -36,27 +36,20 @@ let routes = [{
                 // UserHome will be rendered inside User's <router-view>
                 // when /user/:id is matched
                 { path: 'page0', name: '打印首页', component: function (resolve) {
-                        require(["./pages/print/first.vue"], resolve)
-                    } },
-                {
-                    path: 'page1', name: '打印第2页', component: function (resolve) {
                         require(["./pages/print/firstpage.vue"], resolve)
-                    }
-                },
-                {
-                    path: 'page2', name: '打印第2页', component: function (resolve) {
-                        require(["./pages/print/secondpage.vue"], resolve)
-                    }
-                },
-                { path: 'page3', name: '打印第3页', component: function (resolve) {
+                    } },
+                // {
+                //     path: 'page1', name: '打印第2页', component: function (resolve) {
+                //         require(["./pages/print/secondpage.vue"], resolve)
+                //     }
+                // },
+                { path: 'page1', name: '打印第3页', component: function (resolve) {
                         require(["./pages/print/thirdpage.vue"], resolve)
                     } },
-                { path: 'page4', name: '打印第4页', component: function (resolve) {
+                { path: 'page2', name: '打印第4页', component: function (resolve) {
                         require(["./pages/print/fourthpage.vue"], resolve)
-                    } },
-                { path: 'page5', name: '打印末页', component: function (resolve) {
-                        require(["./pages/print/endpage.vue"], resolve)
-                    } },
+                    } }
+               
             ]
         },
         
