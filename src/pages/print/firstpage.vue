@@ -1,7 +1,7 @@
 <template>
   <div style="background:#eee;padding: 20px">
     <i-form :model="formItem" :label-width="80">
-     <!-- <Row>
+      <Row>
         <i-col span="11">
           <Form-item label="农地经营权*:">
             <i-input v-model="formItem.control" placeholder="请输入农地经营权"></i-input>
@@ -19,10 +19,6 @@
           <i-col span="10.5">
             <Date-picker type="date" placeholder="请选择发证日期" v-model="formItem.issuingDate"></Date-picker>
           </i-col>
-          <!--<i-col span="2" style="text-align: center">-</i-col>
-                                                              <i-col span="11">
-                                                                 
-                                                              </i-col>
         </Row>
       </Form-item>
       <Form-item label="发包方全称*:">
@@ -82,8 +78,8 @@
         <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
   
         <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
-        <!--<i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
-        <i-button style="margin-left: 8px" @click="onPrintFirstPage">打印首页</i-button>-->
+        <i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
+        <i-button style="margin-left: 8px" @click="onPrintFirstPage">打印首页</i-button>
         <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
   
         <i-button style="margin-left: 8px" type="primary" @click="prev">上一页</i-button>
@@ -212,57 +208,86 @@ export default {
       LODOP = getLodop();
 
 
-
-
-
-      LODOP.PRINT_INITA(10, 10, 1054, 715, "恩施农村土地确权证");
-      LODOP.ADD_PRINT_SETUP_BKIMG("../../assets/发包.png");
-      LODOP.ADD_PRINT_TEXT(484, 64, 183, 59, "发包方全称");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(486, 155, 190, 59, "承包方姓名");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(483, 254, 268, 63, "经营方姓名");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(482, 344, 186, 64, "经营方身份证号");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(483, 444, 273, 61, "经营方住址");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(485, 534, 186, 60, "联系电话");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(484, 721, 199, 59, "合同编号");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(480, 812, 240, 60, "合同鉴证单位");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(450, 938, 60, 30, "2017");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(380, 943, 44, 30, "5");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(326, 943, 40, 30, "12");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(218, 940, 55, 25, "2033");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(90, 939, 51, 25, "12");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-      LODOP.ADD_PRINT_TEXT(141, 942, 49, 30, "5");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
-
-
-
-
+LODOP.PRINT_INITA(10,10,900,1200,"恩施农村土地确权证");
+LODOP.ADD_PRINT_TEXT(795,794,94,29,"发包方全称");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(795,718,97,29,"承包方姓名");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(793,647,118,28,"经营方姓名");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(794,566,233,27,"经营方身份证号");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(792,485,338,29,"经营方住址");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(793,406,186,29,"联系电话");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(792,238,233,29,"合同编号");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(794,158,240,24,"合同鉴证单位");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(828,86,60,30,"2017");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(902,85,44,30,"5");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(947,84,40,30,"12");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(1039,85,55,25,"2033");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(1152,86,51,25,"12");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(1109,86,49,30,"5");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(1093,340,21,20,"√");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(1094,304,23,20,"√");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(931,339,22,20,"√");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(931,303,19,20,"√");
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(248,796,100,20,"ES2017");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(372,795,100,20,"201700325");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(231,148,55,20,"2017");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(327,147,54,20,"2");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(394,148,60,20,"23");
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 
     },
     createDataBill() {
@@ -270,86 +295,97 @@ export default {
 var opType = this.formItem.operatorType;
 
 
-//不用替换
-LODOP.ADD_PRINT_SETUP_BKIMG("<img border='0' src='../../assets/发包.png'>");  
-      
-LODOP.PRINT_INITA(10,10,1054,715,"恩施农村土地确权证");
 
-LODOP.ADD_PRINT_TEXT(505,85,183,59,this.formItem.contractorName);
+LODOP.PRINT_INITA(10,10,900,1200,"恩施农村土地确权证");
+LODOP.ADD_PRINT_TEXT(795,794,94,29,this.formItem.ownerName);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(506,163,190,59,this.formItem.contractorName);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(795,718,97,29,this.formItem.contractorName);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(508,263,268,63,this.formItem.operatorName);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(793,647,118,28,this.formItem.operatorName);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(509,367,186,64,this.formItem.operatorIDNumber);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(794,566,233,27,this.formItem.operatorIDNumber);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(511,461,273,61,this.formItem.operatorAddress);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(792,485,338,29,this.formItem.operatorAddress);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(514,553,186,60,this.formItem.contactPhoneNo);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(793,406,186,29,this.formItem.contactPhoneNo);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(512,736,199,59,this.formItem.contractNo);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(792,238,233,29,this.formItem.contractNo);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(512,842,240,60,this.formItem.contractVerifyUnit);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(794,158,240,24,this.formItem.contractVerifyUnit);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(455,927,60,30,this.formItem.beginDate.getFullYear());
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(828,86,60,30,this.formItem.beginDate.getFullYear());
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(394,926,44,30,this.formItem.beginDate.getMonth() + 1);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(902,85,44,30,this.formItem.beginDate.getMonth() + 1);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(338,928,40,30,this.formItem.beginDate.getDate());
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(947,84,40,30,this.formItem.beginDate.getDate());
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(220,925,55,25,this.formItem.invalidDate.getFullYear());
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(1039,85,55,25,this.formItem.invalidDate.getFullYear());
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(93,926,51,25,this.formItem.invalidDate.getDate());
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(1152,86,51,25,this.formItem.invalidDate.getDate());
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-LODOP.ADD_PRINT_TEXT(146,925,49,30,this.formItem.invalidDate.getMonth() + 1);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(1109,86,49,30,this.formItem.invalidDate.getMonth() + 1);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
-LODOP.SET_PRINT_STYLEA(0,"Angle",90);
-
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 if(opType == "1"){
-  LODOP.ADD_PRINT_TEXT(171,624,21,20,"√");
-  LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+  LODOP.ADD_PRINT_TEXT(931,303,19,20,"√");
+  LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 }
 else if(opType == "2"){  
-  LODOP.ADD_PRINT_TEXT(172,666,23,20,"√");
-  LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+  LODOP.ADD_PRINT_TEXT(931,339,22,20,"√");
+  LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 }
 else if(opType == "3"){
-  LODOP.ADD_PRINT_TEXT(363,624,22,20,"√");
-  LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+  LODOP.ADD_PRINT_TEXT(1094,304,23,20,"√");
+  LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 }
 else if(opType == "4")
 {
-  LODOP.ADD_PRINT_TEXT(364,667,19,20,"√");
-  LODOP.SET_PRINT_STYLEA(0,"Angle",90);
+  LODOP.ADD_PRINT_TEXT(1093,340,21,20,"√");
+  LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 }
 
+LODOP.ADD_PRINT_TEXT(248,796,100,20,this.formItem.control);
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(372,795,100,20,this.formItem.controlNO);
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(231,148,55,20,this.formItem.issuingDate.getFullYear());
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(327,147,54,20,this.formItem.issuingDate.getDate());
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+LODOP.ADD_PRINT_TEXT(394,148,60,20,this.formItem.issuingDate.getMonth() + 1);
+LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
     },
     createFirstFullBill(){},
     createFirstDataBill(){}
