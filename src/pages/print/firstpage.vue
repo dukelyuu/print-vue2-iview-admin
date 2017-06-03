@@ -1,7 +1,7 @@
 <template>
   <div style="background:#eee;padding: 20px">
     <i-form :model="formItem" :label-width="80">
-      <Row>
+     <!-- <Row>
         <i-col span="11">
           <Form-item label="农地经营权*:">
             <i-input v-model="formItem.control" placeholder="请输入农地经营权"></i-input>
@@ -20,11 +20,11 @@
             <Date-picker type="date" placeholder="请选择发证日期" v-model="formItem.issuingDate"></Date-picker>
           </i-col>
           <!--<i-col span="2" style="text-align: center">-</i-col>
-                                                            <i-col span="11">
-                                                               
-                                                            </i-col>-->
+                                                              <i-col span="11">
+                                                                 
+                                                              </i-col>
         </Row>
-      </Form-item>
+      </Form-item>-->
       <Form-item label="发包方全称*:">
         <i-input v-model="formItem.ownerName" placeholder="请输入发包方全称"></i-input>
       </Form-item>
@@ -82,7 +82,8 @@
         <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
   
         <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
-        <i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
+        <!--<i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
+        <i-button style="margin-left: 8px" @click="onPrintFirstPage">打印首页</i-button>-->
         <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
   
         <i-button style="margin-left: 8px" type="primary" @click="prev">上一页</i-button>
@@ -159,8 +160,8 @@ export default {
       this.createDataBill();
       LODOP.PREVIEW();
     },
-
-
+    //打印首页
+     onPrintFirstPage(){},
     //打印维护
     onSetup() {
       this.printerMaintenance()
@@ -209,10 +210,6 @@ export default {
     },
     createFullBill() {
       LODOP = getLodop();
-
-
-
-
 
       LODOP.PRINT_INITA(10, 10, 1054, 715, "恩施农村土地确权证");
       LODOP.ADD_PRINT_SETUP_BKIMG("../../assets/发包.png");
@@ -315,7 +312,9 @@ export default {
       LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
 
 
-    }
+    },
+    createFirstFullBill(){},
+    createFirstDataBill(){}
   }
 }
 </script>

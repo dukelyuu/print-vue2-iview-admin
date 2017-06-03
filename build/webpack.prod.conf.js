@@ -96,12 +96,7 @@ var webpackConfig = merge(baseWebpackConfig, {
             from: path.resolve(__dirname, '../src/assets/fonts/'),
             to: config.build.assetsSubDirectory + '/fonts/',
             ignore: ['.*']
-        }]),
-        new CopyWebpackPlugin([{
-            from: path.resolve(__dirname, '../src/assets'),
-            to: config.build.assetsSubDirectory + '/img/',
-            ignore: ['.*']
-        }])       
+        }])     
 
 
     ]

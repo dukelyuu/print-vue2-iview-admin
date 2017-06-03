@@ -353,7 +353,7 @@
           <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
           <i-button style="margin-left: 8px" @click="previewPrint">打印预览2</i-button>
           <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
-          <i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
+          <!--<i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>-->
           <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
   
           <i-button style="margin-left: 8px" type="primary" @click="prev">上一页</i-button>
