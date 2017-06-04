@@ -1,68 +1,24 @@
 <template>
-  <div style="background:#eee;padding: 20px">
-    <i-form :model="formItem" :label-width="80">
-      <Form-item label="输入框">
-        <i-input :value.sync="formItem.input" placeholder="请输入"></i-input>
-      </Form-item>
-      <Form-item label="选择器">
-        <i-select :model.sync="formItem.select" placeholder="请选择">
-          <i-option value="beijing">北京市</i-option>
-          <i-option value="shanghai">上海市</i-option>
-          <i-option value="shenzhen">深圳市</i-option>
-        </i-select>
-      </Form-item>
-      <Form-item label="日期控件">
-        <Row>
-          <i-col span="11">
-            <Date-picker type="date" placeholder="选择日期" :value.sync="formItem.date"></Date-picker>
-          </i-col>
-          <i-col span="2" style="text-align: center">-</i-col>
-          <i-col span="11">
-            <Time-picker type="time" placeholder="选择时间" :value.sync="formItem.time"></Time-picker>
-          </i-col>
-        </Row>
-      </Form-item>
-      <Form-item label="单选框">
-        <Radio-group :model.sync="formItem.radio">
-          <Radio label="male">男</Radio>
-          <Radio label="female">女</Radio>
-        </Radio-group>
-      </Form-item>
-      <Form-item label="多选框">
-        <Checkbox-group v-model="formItem.checkbox">
-          <Checkbox label="吃饭"></Checkbox>
-          <Checkbox label="睡觉"></Checkbox>
-          <Checkbox label="跑步"></Checkbox>
-          <Checkbox label="看电影"></Checkbox>
-        </Checkbox-group>
-      </Form-item>
-      <Form-item label="开关">
-        <Switch :checked.sync="formItem.switch" size="large">
-          <span slot="open">开启</span>
-          <span slot="close">关闭</span>
-        </Switch>
-      </Form-item>
-      <Form-item label="滑块">
-        <Slider :value.sync="formItem.slider" range></Slider>
-      </Form-item>
-      <Form-item label="文本域">
-        <i-input :value.sync="formItem.textarea" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></i-input>
-      </Form-item>
-      <Form-item>
-        <i-button type="primary">提交</i-button>
-        <i-button type="ghost" style="margin-left: 8px">取消</i-button>
-      </Form-item>
-    </i-form>
-    <Button @click="preview1">打印预览</Button>
-    <Button @click="preview2">打印预览2</Button>
-    <Button @click="design1">打印设计</Button>
-    <Button @click="onSetup">打印维护</Button>
-    <Button @click="onPrint">选择打印</Button>
+  <div style="background:#eee;padding: 20px;">
+    <Table size="small" ref="table" height="800" :data="data" :columns="columns"></Table>
+    <div>
+      <i-button type="primary" @click="save">保存</i-button>
+      <i-button type="ghost" style="margin-left: 8px">取消</i-button>
+      <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
+      <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
+      <i-button style="margin-left: 8px" @click="onAddRow">新增一行</i-button>
+      <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
+      <i-button style="margin-left: 8px" type="primary" @click="prev">上一页</i-button>
+      <i-button style="margin-left: 8px" type="primary" @click="next">下一页</i-button>
+      <i-button style="margin-left: 8px" type="primary" @click="home">首页</i-button>
+    </div>
   </div>
 </template>
 <script>
 import Lodopfuncs from '../../lib/CLodopfuncs.js'
 import LodopFunc from '../../lib/LodopFuncs.js'
+
+var LODOP; //声明为全局变量
 //====获取LODOP对象的主过程：====
 function getLodop(oOBJECT, oEMBED) {
   var LODOP;
@@ -88,298 +44,540 @@ function getLodop(oOBJECT, oEMBED) {
 function needCLodop() {
   return true;
 };
-var LODOP; //声明为全局变量
-function Preview1() {
-  CreateFullBill();
-  LODOP.PREVIEW();
-};
-function Design1() {
-  CreateFullBill();
-  //		LODOP.SET_SHOW_MODE("HIDE_ITEM_LIST",true);//设置对象列表默认处于关闭状态
-  //		LODOP.SET_SHOW_MODE("TEXT_SHOW_BORDER",1); //设置字符编辑框默认为single
-  LODOP.PRINT_DESIGN();
-};
-function Preview2() {
-  CreateDataBill();
-  LODOP.PREVIEW();
-};
-function Setup2() {
-  CreateDataBill();
-  LODOP.PRINT_SETUP();
-};
-function Design2() {
-  LODOP.PRINT_DESIGN();
-};
-function RealPrint() {
-  CreateDataBill();
-  //云打印C-Lodop返回结果用回调函数:
-  if (LODOP.CVERSION) {
-    CLODOP.On_Return = function (TaskID, Value) { if (Value) alert("已发出实际打印命令！"); else alert("放弃打印！"); };
-    LODOP.PRINTA();
-    return;
-  };
-  //控件返回结果用语句本身：
-  if (LODOP.PRINTA())
-    alert("已发出实际打印命令！");
-  else
-    alert("放弃打印！");
-};
-function CreateFullBill() {
-  LODOP = getLodop();
-
-  LODOP.PRINT_INITA(10, 10, 762, 533, "恩施农村土地确权证");
-  LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\2 (2).jpg");
-  LODOP.ADD_PRINT_TEXT(96, 68, 44, 55, "11");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(96, 115, 44, 57, "12");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(402, 112, 50, 55, "62");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(402, 164, 47, 55, "63");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(401, 214, 49, 57, "6是");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.SET_PRINT_STYLEA(0, "Horient", 2);
-  LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(95, 165, 44, 57, "13");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(94, 214, 44, 57, "1是");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(156, 66, 45, 56, "21");
-  LODOP.ADD_PRINT_TEXT(156, 115, 45, 56, "22");
-  LODOP.ADD_PRINT_TEXT(156, 165, 45, 56, "23");
-  LODOP.ADD_PRINT_TEXT(155, 215, 45, 56, "2是");
-  LODOP.ADD_PRINT_TEXT(197, 285, 70, 15, "2n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(181, 285, 70, 16, "2s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(136, 284, 70, 15, "1n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(121, 284, 70, 15, "1s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(91, 284, 70, 15, "1e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(106, 284, 70, 15, "1w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(153, 285, 70, 15, "2e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(168, 285, 70, 14, "2w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(402, 65, 45, 55, "61");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(462, 64, 48, 57, "71");
-  LODOP.ADD_PRINT_TEXT(463, 116, 47, 55, "72");
-  LODOP.ADD_PRINT_TEXT(463, 166, 47, 55, "73");
-  LODOP.ADD_PRINT_TEXT(463, 216, 47, 55, "7是");
-  LODOP.ADD_PRINT_TEXT(277, 215, 47, 55, "4是");
-  LODOP.ADD_PRINT_TEXT(277, 165, 47, 55, "43");
-  LODOP.ADD_PRINT_TEXT(277, 115, 47, 55, "42");
-  LODOP.ADD_PRINT_TEXT(276, 63, 48, 57, "41");
-  LODOP.ADD_PRINT_TEXT(217, 214, 47, 55, "3是");
-  LODOP.ADD_PRINT_TEXT(216, 166, 47, 55, "33");
-  LODOP.ADD_PRINT_TEXT(216, 116, 47, 55, "32");
-  LODOP.ADD_PRINT_TEXT(215, 64, 48, 57, "31");
-  LODOP.ADD_PRINT_TEXT(339, 214, 47, 55, "5是");
-  LODOP.ADD_PRINT_TEXT(339, 164, 47, 55, "53");
-  LODOP.ADD_PRINT_TEXT(339, 114, 47, 55, "52");
-  LODOP.ADD_PRINT_TEXT(338, 64, 48, 57, "51");
-  LODOP.ADD_PRINT_TEXT(501, 285, 70, 15, "7n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(485, 285, 70, 16, "7s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(472, 285, 70, 14, "7w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(457, 285, 70, 15, "7e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(395, 285, 70, 15, "6e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(410, 285, 70, 14, "6w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(423, 285, 70, 16, "6s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(439, 285, 70, 15, "6n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(378, 286, 70, 15, "5n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(362, 286, 70, 16, "5s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(349, 286, 70, 14, "5w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(334, 286, 70, 15, "5e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(317, 286, 70, 15, "4n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(301, 286, 70, 16, "4s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(288, 286, 70, 14, "4w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(273, 286, 70, 15, "4e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(258, 286, 70, 15, "3n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(242, 286, 70, 16, "3s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(229, 286, 70, 14, "3w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(214, 286, 70, 15, "3e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
 
 
-
-};
-function CreateDataBill() {
-  LODOP = getLodop();
-
-  LODOP.PRINT_INITA(10, 10, 762, 533, "恩施农村土地确权证");
-  LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\2 (2).jpg");
-  LODOP.ADD_PRINT_TEXT(96, 68, 44, 55, "11");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(96, 115, 44, 57, "12");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(402, 112, 50, 55, "62");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(402, 164, 47, 55, "63");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(401, 214, 49, 57, "6是");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.SET_PRINT_STYLEA(0, "Horient", 2);
-  LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(95, 165, 44, 57, "13");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(94, 214, 44, 57, "1是");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(156, 66, 45, 56, "21");
-  LODOP.ADD_PRINT_TEXT(156, 115, 45, 56, "22");
-  LODOP.ADD_PRINT_TEXT(156, 165, 45, 56, "23");
-  LODOP.ADD_PRINT_TEXT(155, 215, 45, 56, "2是");
-  LODOP.ADD_PRINT_TEXT(197, 285, 70, 15, "2n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(181, 285, 70, 16, "2s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(136, 284, 70, 15, "1n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(121, 284, 70, 15, "1s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(91, 284, 70, 15, "1e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(106, 284, 70, 15, "1w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(153, 285, 70, 15, "2e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(168, 285, 70, 14, "2w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(402, 65, 45, 55, "61");
-  LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-  LODOP.ADD_PRINT_TEXT(462, 64, 48, 57, "71");
-  LODOP.ADD_PRINT_TEXT(463, 116, 47, 55, "72");
-  LODOP.ADD_PRINT_TEXT(463, 166, 47, 55, "73");
-  LODOP.ADD_PRINT_TEXT(463, 216, 47, 55, "7是");
-  LODOP.ADD_PRINT_TEXT(277, 215, 47, 55, "4是");
-  LODOP.ADD_PRINT_TEXT(277, 165, 47, 55, "43");
-  LODOP.ADD_PRINT_TEXT(277, 115, 47, 55, "42");
-  LODOP.ADD_PRINT_TEXT(276, 63, 48, 57, "41");
-  LODOP.ADD_PRINT_TEXT(217, 214, 47, 55, "3是");
-  LODOP.ADD_PRINT_TEXT(216, 166, 47, 55, "33");
-  LODOP.ADD_PRINT_TEXT(216, 116, 47, 55, "32");
-  LODOP.ADD_PRINT_TEXT(215, 64, 48, 57, "31");
-  LODOP.ADD_PRINT_TEXT(339, 214, 47, 55, "5是");
-  LODOP.ADD_PRINT_TEXT(339, 164, 47, 55, "53");
-  LODOP.ADD_PRINT_TEXT(339, 114, 47, 55, "52");
-  LODOP.ADD_PRINT_TEXT(338, 64, 48, 57, "51");
-  LODOP.ADD_PRINT_TEXT(501, 285, 70, 15, "7n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(485, 285, 70, 16, "7s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(472, 285, 70, 14, "7w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(457, 285, 70, 15, "7e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(395, 285, 70, 15, "6e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(410, 285, 70, 14, "6w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(423, 285, 70, 16, "6s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(439, 285, 70, 15, "6n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(378, 286, 70, 15, "5n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(362, 286, 70, 16, "5s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(349, 286, 70, 14, "5w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(334, 286, 70, 15, "5e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(317, 286, 70, 15, "4n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(301, 286, 70, 16, "4s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(288, 286, 70, 14, "4w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(273, 286, 70, 15, "4e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(258, 286, 70, 15, "3n");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(242, 286, 70, 16, "3s");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(229, 286, 70, 14, "3w");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-  LODOP.ADD_PRINT_TEXT(214, 286, 70, 15, "3e");
-  LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-
-
-}
+import { mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
+  props: {
+    columns: {
+      type: Array,
+      default() {
+        return [
+          {
+            title: '编号',
+            key: 'NO',
+            width: 65,
+            fixed: 'left',
+            render: function (h, context) {
+              return h('p', '#' + context.index)
+            }
+
+          },
+          {
+            title: '地块名称',
+            key: 'landName',
+            //width: 200,
+            //fixed: 'left'
+            render: (h, params) => {
+              const _this = this;
+
+              return h('div', [
+                h('Input', {
+                  ref: 'landName' + params.index,
+                  domProps: {
+                    value: _this["landName" + params.index]
+                  },
+                  props: {
+
+                    placeholder: "输入地块名称",
+                    type: 'text',
+                    size: 'small',
+
+                  },
+                  on: {
+                    "on-change": function (event) {
+                      _this['landName' + params.index] = event.target.value
+
+                      _this.update_currentData({ "attrName": 'landName' + params.index, 'value': event.target.value })
+                    }
+                  }
+                })
+              ])
+            }
+          },
+          {
+            title: '地块编码',
+            key: 'landNO',
+            //width: 200
+            render: (h, params) => {
+              const _this = this;
+              return h('div', [
+                h('Input', {
+                  ref: 'landNO' + params.index,
+                   domProps: {
+                    value: _this["landNO" + params.index]
+                  },
+                  props: {
+                    placeholder: "输入地块编码",
+                    type: 'text',
+                    size: 'small',
+                    value: ''
+                  },
+                  on: {
+                    input: function (val) {
+                      _this['landNO' + params.index] = val
+                      _this.update_currentData({ "attrName": 'landNO' + params.index, value: val })
+                    }
+                  }
+                })
+              ])
+            }
+          },
+          {
+            title: '实测面积(亩)',
+            key: 'realArea',
+            // width: 200
+            render: (h, params) => {
+              
+              const _this = this;
+              return h('div', [
+                h('Input', {
+                  ref: 'realArea' + params.index,
+                  domProps: {
+                    value: _this["realArea" + params.index]
+                  },
+                  props: {
+                    placeholder: "输入实测面积",
+                    type: 'text',
+                    size: 'small',
+                    value: _this["realArea" + params.index]
+                  },
+
+                  on: {
+                    input: function (val) {
+                      _this['realArea' + params.index] = val
+                      _this.update_currentData({ "attrName": 'realArea' + params.index, value: val })
+                    }
+                  }
+                })
+              ])
+            }
+          },
+          {
+            title: '是否基本农田',
+            key: 'ifBasefarm',
+            //width: 200
+            render: function (h, params) {
+
+              var options = ['是', '否'];
+              var rs = [];
+              rs = options.map(function (item) {
+                var vnode = h('Option', {
+                  props: {
+                    value: item,
+                    label: item
+                  },
+                  // slot: 'select'
+                })
+                return vnode
+              })
+              var _this = this;
+              window.top.baseFarm = this;
+              return h(
+                'Select',
+                {
+                  ref: 'select' + params.index,
+                  domProps: {
+                    value: _this['ifBasefarm' + params.index],
+                  },
+                  props: {
+                    placeholder: "选择是否基本农田",
+                  },
+                  directives: [
+                    {
+                      value: '2',
+                      arg: 'foo',
+                      
+                    }
+                  ],
+                  on: {
+                    "on-change": function (value) {
+                    
+                      //_this.$store.dispatch('UPDATE_CURRENTDATA', 'landName', 'test')
+                      _this['ifBasefarm' + params.index] = value
+                      if(_this.update_currentData){
+                        _this.update_currentData({ "attrName": 'ifBasefarm' + params.index, 'value': value })
+                      }else{
+                        var val = { "attrName": 'ifBasefarm' + params.index, 'value': value }
+                        localStorage.setItem('ifBasefarm' + params.index,JSON.stringify(val))
+                      }
+                      
+                    }
+                  },
+
+                }, rs);
+
+            }
+          },
+          {
+            title: '四至',
+            key: 'derection',
+            //fixed: 'right',
+            width: 300,
+            render: (h, params) => {
+              const _this = this;
+              return h('div', [
+                h('Input', {
+                  ref: 'east' + params.index,
+                  domProps: {
+                    value: _this['east' + params.index]
+                  },
+                  props: {
+                    placeholder: "东：",
+                    type: 'text',
+                    size: 'small',
+                    value: ''
+                  },
+                  on: {
+                    input: function (val) {
+                      _this["east" + params.index] = val;
+                      _this.update_currentData({ "attrName": 'east' + params.index, value: val })
+                    }
+                  }
+                }),
+                h('Input', {
+                  ref: 'west' + params.index,
+                  domProps: {
+                    value: _this['west' + params.index]
+                  },
+                  props: {
+                    placeholder: "西：",
+                    type: 'text',
+                    size: 'small'
+                  },
+                  on: {
+                    input: function (val) {
+                      _this["west" + params.index] = val;
+                      _this.update_currentData({ "attrName": 'west' + params.index, value: val })
+                    }
+                  }
+                }),
+                h('Input', {
+                  ref: 'south' + params.index,
+                  domProps: {
+                    value: _this['south' + params.index]
+                  },
+                  props: {
+                    placeholder: "南：",
+                    type: 'text',
+                    size: 'small'
+                  },
+                  on: {
+                    input: function (val) {
+                      _this["south" + params.index] = val;
+                      _this.update_currentData({ "attrName": 'south' + params.index, value: val })
+                    }
+                  }
+                }),
+                h('Input', {
+                  ref: 'north' + params.index,
+                  domProps: {
+                    value: _this['north' + params.index]
+                  },
+                  props: {
+                    placeholder: "北：",
+                    type: 'text',
+                    size: 'small'
+                  },
+                  on: {
+                    input: function (val) {
+                      _this["north" + params.index] = val;
+                      _this.update_currentData({ "attrName": 'north' + params.index, value: val })
+                    }
+                  }
+                })
+              ]);
+            }
+          }
+        ]
+      }
+    },
+    data: {
+      type: Array,
+      default() {
+        return [
+          {
+            landName: '12312312',
+            landNO: '围棋翁23213',
+            realArea: 111,
+            ifBasefarm: '是',
+          }
+        ]
+      }
+    },
+    result: {
+      ifBasefarm: ''
+    }
+  },
   data() {
     return {
-      formItem: {
-        input: '',
-        select: '',
-        radio: 'male',
-        checkbox: [],
-        switch: true,
-        date: '',
-        time: '',
-        slider: [20, 50],
-        textarea: '',
-        formItem: {
-          input: '',
-          select: '',
-          radio: 'male',
-          checkbox: [],
-          switch: true,
-          date: '',
-          time: '',
-          slider: [20, 50],
-          textarea: ''
-        }
-      }
+      currentColumns: [],
+      currentData: [],
+      landName0: '',
+      landNO0: '',
+      realArea0: '',
+      ifBasefarm0: '',
+      east0: '',
+      west0: '',
+      south0: '',
+      north0: '',
+      landName1: '',
+      landNO1: '',
+      realArea1: '',
+      ifBasefarm1: '',
+
+      items: ['是', '否']
+
     }
   },
   methods: {
-    preview1() {
-      Preview1()
+    ...mapActions([
+      'increment', // 映射 this.increment() 为 this.$store.dispatch('increment')
+      'decrement',
+      'update_currentData'
+    ]),
+    onAddRow() {
+      this.data.push({})
     },
-    preview2() {
-      Preview2()
+    onMakeData() {
+      this.currentData = this.data.map((row, index) => {
+        row._index = index;
+        return row;
+      })
     },
-    design1() {
-      Design1()
+    onMakeColumns() {
+      this.currentColumns = this.cloumns.map((col, index) => {
+        col._sortType = 'normal',
+          col._index = index;
+        return col;
+      })
     },
-    Design2() {
-      Design2()
+    save() {
+      debugger
+      var table = this.$refs.table
+      //todo 获取localstorage里面的是否农田数据，刷新到状态管理器里面
+      //
+      this.update_currentData()
+      var data = this.get_currentData
     },
+    //打印预览
+    previewPrintFull() {
+      this.createDataBill();
+      LODOP.PREVIEW();
+    },
+    //打印预览2
+    previewPrint() {
+      this.createDataBill();
+      LODOP.PREVIEW();
+    },
+
+
+    //打印维护
     onSetup() {
-      Setup2()
+      this.printerMaintenance()
     },
+    //选择打印
     onPrint() {
-      RealPrint()
+      this.realPrint()
+    },
+    prev() {
+      if (this.$parent.$data.current > 0) {
+        this.$parent.$data.current -= 1;
+      }
+    },
+    next() {
+
+      if (this.$parent.$data.current < 4) {
+        this.$parent.$data.current += 1;
+      }
+    },
+    home() {
+      this.$parent.$data.current = 0
+    },
+    //打印设计
+    printDesign() {
+      this.createFullBill();
+      //		LODOP.SET_SHOW_MODE("HIDE_ITEM_LIST",true);//设置对象列表默认处于关闭状态
+      //		LODOP.SET_SHOW_MODE("TEXT_SHOW_BORDER",1); //设置字符编辑框默认为single
+      LODOP.PRINT_DESIGN();
+    },
+    printerMaintenance() {
+      LODOP.PRINT_DESIGN();
+    },
+    realPrint() {
+      this.createDataBill();
+      //云打印C-Lodop返回结果用回调函数:
+      if (LODOP.CVERSION) {
+        CLODOP.On_Return = function (TaskID, Value) { if (Value) alert("已发出实际打印命令！"); else alert("放弃打印！"); };
+        LODOP.PRINTA();
+        return;
+      };
+      //控件返回结果用语句本身：
+      if (LODOP.PRINTA())
+        alert("已发出实际打印命令！");
+      else
+        alert("放弃打印！");
+    },
+    createFullBill() {
+      LODOP = getLodop();
+
+
+      LODOP.PRINT_INITA(10, 10, 1100, 740, "恩施农村土地确权证");
+      LODOP.ADD_PRINT_SETUP_BKIMG("../../assets/地块.png");
+      LODOP.ADD_PRINT_TEXT(536, 158, 115, 95, "地块名称1");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(536, 280, 115, 95, "地块名称2");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(537, 401, 115, 95, "地块名称3");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(537, 523, 115, 95, "地块名称4");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(536, 644, 115, 95, "地块名称5");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(537, 766, 115, 95, "地块名称6");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(538, 887, 115, 95, "地块名称7");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(437, 160, 115, 95, "地块编码1");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(337, 162, 115, 95, "实测面积1");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(240, 161, 115, 95, "是否农田1");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(437, 282, 115, 95, "地块编码2");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(337, 284, 115, 95, "实测面积2");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(240, 283, 115, 95, "是否农田2");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(437, 403, 115, 95, "地块编码3\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(337, 405, 115, 95, "实测面积3\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(240, 404, 115, 95, "是否农田3\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(238, 527, 115, 95, "是否农田4\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(336, 526, 115, 95, "实测面积4\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(436, 526, 115, 95, "地块编码4\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(337, 647, 115, 95, "实测面积5\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(436, 647, 115, 95, "地块编码5\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(239, 648, 115, 95, "是否农田5\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(241, 768, 115, 95, "是否农田6\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(338, 769, 115, 95, "实测面积6\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(437, 769, 115, 95, "地块编码6\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(242, 888, 115, 95, "是否农田7\r\n");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(339, 889, 115, 95, "实测面积7");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(438, 889, 115, 95, "地块编码7");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(178, 169, 110, 20, "东1");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(178, 199, 110, 20, "西1");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(178, 228, 110, 20, "南1");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(178, 254, 110, 20, "北1");
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+
+
+
+
+
+
+    },
+    createDataBill() {
+      LODOP = getLodop();
+
+
+
+      LODOP.PRINT_INITA(10, 10, 1100, 740, "恩施农村土地确权证");
+      LODOP.ADD_PRINT_SETUP_BKIMG("../../assets/地块.png");
+      LODOP.ADD_PRINT_TEXT(536, 158, 115, 95, this.formItem.landName);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(536, 280, 115, 95, this.formItem.landName2);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(537, 401, 115, 95, this.formItem.landName3);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(537, 523, 115, 95, this.formItem.landName4);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(536, 644, 115, 95, this.formItem.landName5);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(537, 766, 115, 95, this.formItem.landName6);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(538, 887, 115, 95, this.formItem.landName7);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(437, 160, 115, 95, this.formItem.landNO);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(337, 162, 115, 95, this.formItem.realArea);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(240, 161, 115, 95, this.formItem.ifBasefarm);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(437, 282, 115, 95, this.formItem.landNO2);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(337, 284, 115, 95, this.formItem.realArea2);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(240, 283, 115, 95, this.formItem.ifBasefarm2);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(437, 403, 115, 95, this.formItem.landNO3);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(337, 405, 115, 95, this.formItem.realArea3);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(240, 404, 115, 95, this.formItem.ifBasefarm3);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(238, 527, 115, 95, this.formItem.ifBasefarm4);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(336, 526, 115, 95, this.formItem.realArea4);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(436, 526, 115, 95, this.formItem.landNO4);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(337, 647, 115, 95, this.formItem.realArea5);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(436, 647, 115, 95, this.formItem.landNO5);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(239, 648, 115, 95, this.formItem.ifBasefarm5);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(241, 768, 115, 95, this.formItem.ifBasefarm6);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(338, 769, 115, 95, this.formItem.realArea6);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(437, 769, 115, 95, this.formItem.landNO6);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(242, 888, 115, 95, this.formItem.ifBasefarm7);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(339, 889, 115, 95, this.formItem.realArea7);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(438, 889, 115, 95, this.formItem.landNO7);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(178, 169, 110, 20, this.formItem.east);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(178, 199, 110, 20, this.formItem.west);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(178, 228, 110, 20, this.formItem.south);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+      LODOP.ADD_PRINT_TEXT(178, 254, 110, 20, this.formItem.north);
+      LODOP.SET_PRINT_STYLEA(0, "Angle", 90);
+
+
+
     }
   },
-  mounted(){
-    LODOP = getLodop();
+  computed: {
+    ...mapGetters([
+      'getCount',
+      'get_currentData'
+      // ...
+    ])
   }
 }
 </script>
