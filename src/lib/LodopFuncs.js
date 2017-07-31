@@ -22,6 +22,7 @@ head.insertBefore(oscript, head.firstChild);
 function getLodop(oOBJECT, oEMBED) {
     var LODOP;
     try {
+            LODOP.SET_LICENSES("","647464550565952565559561289003","688858710010010811411756128900","");
         try {
             LODOP = getCLodop();
         } catch (err) {};

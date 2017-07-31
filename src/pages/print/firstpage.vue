@@ -77,9 +77,9 @@
         <i-button type="ghost" style="margin-left: 8px">取消</i-button>
         <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
   
-        <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
-        <i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>
-        <i-button style="margin-left: 8px" @click="onPrintFirstPage">打印首页</i-button>
+        <!--<i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
+        <i-button style="margin-left: 8px" @click="onPrintFirstPage">打印首页</i-button>-->
+        
         <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
   
         <i-button style="margin-left: 8px" type="primary" @click="prev">上一页</i-button>
@@ -100,6 +100,7 @@ var LODOP; //声明为全局变量
 function getLodop(oOBJECT, oEMBED) {
   var LODOP;
   try {
+	    LODOP.SET_LICENSES("","647464550565952565559561289003","688858710010010811411756128900","");
     try {
       LODOP = getCLodop();
     } catch (err) { };
@@ -209,7 +210,7 @@ export default {
 
 
 LODOP.PRINT_INITA(10,10,900,1200,"恩施农村土地确权证");
-LODOP.ADD_PRINT_TEXT(795,794,94,29,"发包方全称");
+LODOP.ADD_PRINT_TEXT(795,794,254,29,"发包方全称");
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
 LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
@@ -297,7 +298,7 @@ var opType = this.formItem.operatorType;
 
 
 LODOP.PRINT_INITA(10,10,900,1200,"恩施农村土地确权证");
-LODOP.ADD_PRINT_TEXT(795,794,94,29,this.formItem.ownerName);
+LODOP.ADD_PRINT_TEXT(795,794,254,29,this.formItem.ownerName);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
 LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
@@ -354,20 +355,20 @@ LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"FontColor","#0000FF");
 LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 if(opType == "1"){
-  LODOP.ADD_PRINT_TEXT(931,303,19,20,"√");
+  LODOP.ADD_PRINT_TEXT(1093,340,21,20,"√");
   LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 }
 else if(opType == "2"){  
-  LODOP.ADD_PRINT_TEXT(931,339,22,20,"√");
+  LODOP.ADD_PRINT_TEXT(1094,304,23,20,"√");
   LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 }
 else if(opType == "3"){
-  LODOP.ADD_PRINT_TEXT(1094,304,23,20,"√");
+  LODOP.ADD_PRINT_TEXT(931,339,22,20,"√");
   LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 }
 else if(opType == "4")
 {
-  LODOP.ADD_PRINT_TEXT(1093,340,21,20,"√");
+  LODOP.ADD_PRINT_TEXT(931,303,19,20,"√");
   LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 }
 
@@ -380,10 +381,10 @@ LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 LODOP.ADD_PRINT_TEXT(231,148,55,20,this.formItem.issuingDate.getFullYear());
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
-LODOP.ADD_PRINT_TEXT(327,147,54,20,this.formItem.issuingDate.getDate());
+LODOP.ADD_PRINT_TEXT(327,147,54,20,this.formItem.issuingDate.getMonth() + 1);
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
-LODOP.ADD_PRINT_TEXT(394,148,60,20,this.formItem.issuingDate.getMonth() + 1);
+LODOP.ADD_PRINT_TEXT(394,148,60,20,this.formItem.issuingDate.getDate());
 LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
 LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
     },

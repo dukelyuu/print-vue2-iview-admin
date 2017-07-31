@@ -200,7 +200,7 @@
             </Form-item>
           </i-col>
         </Row>
-        
+        <Row>
           <i-col span="4">
             <Form-item>
               <i-input v-model="formItem.landName5" placeholder="请输入地块名称"></i-input>
@@ -464,7 +464,7 @@
           </i-col>
           <i-col span="5">
             <Form-item l>
-              <Select v-model="formItem.ifBasefarm6">
+              <Select v-model="formItem.ifBasefarm10">
                 <Option value="是" label="是">
                   <span>是</span>
                   <span style="float:right;color:#ccc">Yes</span>
@@ -559,12 +559,12 @@
           <i-button type="ghost" style="margin-left: 8px">取消</i-button>
           <i-button style="margin-left: 8px" @click="previewPrintFull">打印预览</i-button>
   
-          <i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
-          <!--<i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>-->
+          <!--<i-button style="margin-left: 8px" @click="printDesign">打印设计</i-button>
+          <i-button style="margin-left: 8px" @click="onSetup">打印维护</i-button>-->
           <i-button style="margin-left: 8px" @click="onPrint">选择打印</i-button>
   
           <i-button style="margin-left: 8px" type="primary" @click="prev">上一页</i-button>
-          <i-button style="margin-left: 8px" type="primary" @click="next">下一页</i-button>
+          <!--<i-button style="margin-left: 8px" type="primary" @click="next">下一页</i-button>-->
           <i-button style="margin-left: 8px" type="primary" @click="home">首页</i-button>
         </Form-item>
       </Form>
@@ -580,6 +580,7 @@ var LODOP; //声明为全局变量
 function getLodop(oOBJECT, oEMBED) {
   var LODOP;
   try {
+	    LODOP.SET_LICENSES("","647464550565952565559561289003","688858710010010811411756128900","");
     try {
       LODOP = getCLodop();
     } catch (err) { };
@@ -734,11 +735,9 @@ export default {
       ],
       tableData: [],
       formItem: {
-        totalArea: 0,
-        totalNumber: 0,
         landName: '',
         landNO: '',
-        realArea: 0,
+        realArea: '',
         ifBasefarm: '',
         east: '',
         west: '',
@@ -746,7 +745,7 @@ export default {
         north: '',
         landName2: '',
         landNO2: '',
-        realArea2: 0,
+        realArea2: '',
         ifBasefarm2: '',
         east2: '',
         west2: '',
@@ -754,7 +753,7 @@ export default {
         north2: '',
         landName3: '',
         landNO3: '',
-        realArea3: 0,
+        realArea3: '',
         ifBasefarm3: '',
         east3: '',
         west3: '',
@@ -762,7 +761,7 @@ export default {
         north3: '',
         landName4: '',
         landNO4: '',
-        realArea4: 0,
+        realArea4: '',
         ifBasefarm4: '',
         east4: '',
         west4: '',
@@ -770,7 +769,7 @@ export default {
         north4: '',
         landName5: '',
         landNO5: '',
-        realArea5: 0,
+        realArea5: '',
         ifBasefarm5: '',
         east5: '',
         west5: '',
@@ -778,7 +777,7 @@ export default {
         north5: '',
         landName6: '',
         landNO6: '',
-        realArea6: 0,
+        realArea6: '',
         ifBasefarm6: '',
         east6: '',
         west6: '',
@@ -786,7 +785,7 @@ export default {
         north6: '',
         landName7: '',
         landNO7: '',
-        realArea7: 0,
+        realArea7: '',
         ifBasefarm7: '',
         east7: '',
         west7: '',
@@ -794,7 +793,7 @@ export default {
         north7: '',
         landName8: '',
         landNO8: '',
-        realArea8: 0,
+        realArea8: '',
         ifBasefarm8: '',
         east8: '',
         west8: '',
@@ -802,7 +801,7 @@ export default {
         north8: '',
         landName9: '',
         landNO9: '',
-        realArea9: 0,
+        realArea9: '',
         ifBasefarm9: '',
         east9: '',
         west9: '',
@@ -810,7 +809,7 @@ export default {
         north9: '',
         landName10: '',
         landNO10: '',
-        realArea10: 0,
+        realArea10: '',
         ifBasefarm10: '',
         east10: '',
         west10: '',
@@ -818,36 +817,12 @@ export default {
         north10: '',
         landName11: '',
         landNO11: '',
-        realArea11: 0,
+        realArea11: '',
         ifBasefarm11: '',
         east11: '',
         west11: '',
         south11: '',
-        north11: '',
-        landName12: '',
-        landNO12: '',
-        realArea12: 0,
-        ifBasefarm12: '',
-        east12: '',
-        west12: '',
-        south12: '',
-        north12: '',
-        landName13: '',
-        landNO13: '',
-        realArea13: 0,
-        ifBasefarm13: '',
-        east13: '',
-        west13: '',
-        south13: '',
-        north13: '',
-        landName14: '',
-        landNO14: '',
-        realArea14: 0,
-        ifBasefarm14: '',
-        east14: '',
-        west14: '',
-        south14: '',
-        north14: '',
+        north11: '',        
         issuingDate: new Date()
       }
     }
@@ -918,74 +893,237 @@ export default {
     createFullBill() {
       LODOP = getLodop();
 
-
-
-
-
-      LODOP.PRINT_INITA(10, 10, 762, 545, "恩施农村土地确权证");
-      LODOP.ADD_PRINT_SETUP_BKIMG("src\\assets\\55.png");
-      LODOP.ADD_PRINT_TEXT(89, 438, 44, 55, "11");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(89, 487, 44, 57, "12");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(90, 536, 44, 56, "13");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(90, 586, 44, 57, "1是");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(152, 437, 45, 56, "21");
-      LODOP.ADD_PRINT_TEXT(153, 487, 45, 56, "22");
-      LODOP.ADD_PRINT_TEXT(153, 537, 45, 56, "23");
-      LODOP.ADD_PRINT_TEXT(153, 586, 45, 56, "2是");
-      LODOP.ADD_PRINT_TEXT(194, 655, 70, 15, "2n");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(178, 655, 70, 16, "2s");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(132, 654, 70, 15, "1n");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(117, 654, 70, 15, "1s");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(87, 654, 70, 15, "1e");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(102, 654, 70, 15, "1w");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(150, 655, 70, 15, "2e");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(165, 655, 70, 14, "2w");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(284, 585, 47, 55, "4是");
-      LODOP.ADD_PRINT_TEXT(284, 536, 47, 55, "43");
-      LODOP.ADD_PRINT_TEXT(284, 486, 47, 55, "42");
-      LODOP.ADD_PRINT_TEXT(283, 436, 48, 57, "41");
-      LODOP.ADD_PRINT_TEXT(220, 585, 47, 55, "3是");
-      LODOP.ADD_PRINT_TEXT(219, 537, 47, 55, "33");
-      LODOP.ADD_PRINT_TEXT(219, 486, 47, 55, "32");
-      LODOP.ADD_PRINT_TEXT(216, 436, 48, 57, "31");
-      LODOP.ADD_PRINT_TEXT(323, 655, 70, 15, "4n");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(307, 655, 70, 16, "4s");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(294, 655, 70, 14, "4w");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(280, 655, 70, 15, "4e");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(259, 654, 70, 15, "3n");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(243, 654, 70, 16, "3s");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(230, 654, 70, 14, "3w");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(215, 654, 70, 15, "3e");
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(489, 577, 40, 20, "2017");
-      LODOP.ADD_PRINT_TEXT(489, 631, 20, 20, "5");
-      LODOP.SET_PRINT_STYLEA(0, "AlignJustify", 1);
-      LODOP.ADD_PRINT_TEXT(489, 657, 25, 20, "22");
-
-
-
-
+      
+      LODOP.PRINT_INITA(10,10,900,1200,"恩施农村土地确权证");
+      LODOP.ADD_PRINT_TEXT(79,127,76,63,"文本7");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(163,129,76,63,"7");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(247,127,76,63,"7");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(331,127,76,63,"7");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(80,227,76,63,"加文本6");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(164,229,76,63,"新加文本6");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(248,227,76,63,"新加文本6");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(332,227,76,63,"文本6");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(80,329,76,63,"加文本5");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(164,331,76,63,"文本5");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(163,432,76,63,"新加文本4");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(79,430,76,63,"加文本4");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(247,430,76,63,"新加文本4");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(248,329,76,63,"新加文本5");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(332,329,76,63,"加文本5");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(331,430,76,63,"新加文本4");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(80,532,76,63,"加文本3");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(164,534,76,63,"新加文本3");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(248,532,76,63,"加文3");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(332,532,76,63,"新加文本3");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(81,742,76,63,"新加文本1");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(165,744,76,63,"新加文本1");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(249,742,76,63,")新加文本1");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(333,742,76,63,"加文本1");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(81,638,76,63,"加文本2");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(165,640,76,63,")新加文本2");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(249,638,76,63,"文本2");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(333,638,76,63,"加文本2");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,751,100,20,"1E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,730,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,705,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,680,100,20,")新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,648,100,20,"2E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,626,100,20,"22222222");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,602,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,577,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,543,100,20,"3E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,521,100,20,"333333");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,498,100,20,")新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,475,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,438,100,20,"4E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,418,100,20,"44444");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,398,100,20,")新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,373,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,336,100,20,"5E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,313,100,20,"55555");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,291,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,267,100,20,")新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,232,100,20,"6E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,210,100,20,"66666");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,185,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,163,100,20,")新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(454,129,100,20,"7E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(454,107,100,20,"77777");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(454,84,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(454,62,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(715,422,76,63,"新加文本11");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(799,424,76,63,"新加文本11");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(883,422,76,63,"加文本11");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(967,422,76,63,"文本11");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(968,524,76,63,"文本10");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(889,524,76,63,"文本10");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(800,526,76,63,"加文本10");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(716,524,76,63,"新加文本10");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(717,630,76,63,"加文本9");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(801,632,76,63,"加文本9");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(885,630,76,63,"加文9本9");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(969,630,76,63,"加文本9");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(971,738,76,63,"文本8");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(885,734,76,63,"加文本8");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(801,736,76,63,"新加文本8");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(717,734,76,63,"8");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,750,100,20,"8E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,729,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,704,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,679,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,648,100,20,"9E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,626,100,20,"文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,602,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,577,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,543,100,20,"10E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,521,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,498,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,475,100,20,"新加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,440,100,20,"11E");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,417,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,393,100,20,"文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1094,372,100,20,"加文本81");
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1102,104,76,41,"12");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1056,104,76,33,"6");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(988,106,76,33,"2018");
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 
 
     },
@@ -993,69 +1131,242 @@ export default {
       LODOP = getLodop();
 
 
-      LODOP.PRINT_INITA(10, 10, 762, 545, "恩施农村土地确权证");
-      LODOP.ADD_PRINT_SETUP_BKIMG("C:\\Users\\AnnieXiong\\Pictures\\打印\\55.png");
-      LODOP.ADD_PRINT_TEXT(89, 438, 44, 55, this.formItem.landName);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(89, 487, 44, 57, this.formItem.landNO);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(481, 790, 14, 20, "5");
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(90, 536, 44, 56, this.formItem.realArea);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(90, 586, 44, 57, this.formItem.ifBasefarm);
-      LODOP.SET_PRINT_STYLEA(0, "FontColor", "#0000FF");
-      LODOP.ADD_PRINT_TEXT(152, 437, 45, 56, this.formItem.landName2);
-      LODOP.ADD_PRINT_TEXT(153, 487, 45, 56, this.formItem.landNO2);
-      LODOP.ADD_PRINT_TEXT(153, 537, 45, 56, this.formItem.realArea2);
-      LODOP.ADD_PRINT_TEXT(153, 586, 45, 56, this.formItem.ifBasefarm2);
-      LODOP.ADD_PRINT_TEXT(194, 655, 70, 15, this.formItem.north2);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(178, 655, 70, 16, this.formItem.south2);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(132, 654, 70, 15, this.formItem.north);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(117, 654, 70, 15, this.formItem.south);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(87, 654, 70, 15, this.formItem.east);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(102, 654, 70, 15, this.formItem.west);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(150, 655, 70, 15, this.formItem.east2);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(165, 655, 70, 14, this.formItem.west2);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(284, 585, 47, 55, this.formItem.ifBasefarm4);
-      LODOP.ADD_PRINT_TEXT(284, 536, 47, 55, this.formItem.realArea4);
-      LODOP.ADD_PRINT_TEXT(284, 486, 47, 55, this.formItem.landNO4);
-      LODOP.ADD_PRINT_TEXT(283, 436, 48, 57, this.formItem.landName4);
-      LODOP.ADD_PRINT_TEXT(220, 585, 47, 55, this.formItem.ifBasefarm3);
-      LODOP.ADD_PRINT_TEXT(219, 537, 47, 55, this.formItem.realArea3);
-      LODOP.ADD_PRINT_TEXT(219, 486, 47, 55, this.formItem.landNO3);
-      LODOP.ADD_PRINT_TEXT(216, 436, 48, 57, this.formItem.landName3);
-      LODOP.ADD_PRINT_TEXT(323, 655, 70, 15, this.formItem.north4);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(307, 655, 70, 16, this.formItem.south4);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(294, 655, 70, 14, this.formItem.west4);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(280, 655, 70, 15, this.formItem.east4);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(259, 654, 70, 15, this.formItem.north3);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(243, 654, 70, 16, this.formItem.south3);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(230, 654, 70, 14, this.formItem.west3);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(215, 654, 70, 15, this.formItem.east3);
-      LODOP.SET_PRINT_STYLEA(0, "FontSize", 7);
-      LODOP.ADD_PRINT_TEXT(489, 577, 40, 20, this.formItem.issuingDate.getFullYear());
-      LODOP.ADD_PRINT_TEXT(489, 631, 20, 20, this.formItem.issuingDate.getMonth() + 1);
-      LODOP.SET_PRINT_STYLEA(0, "AlignJustify", 1);
-      LODOP.ADD_PRINT_TEXT(489, 657, 25, 20, this.formItem.issuingDate.getDate());
+      LODOP.PRINT_INITA(10,10,900,1200,"恩施农村土地确权证");
 
+      
+      
+      LODOP.PRINT_INITA(10,10,900,1200,"恩施农村土地确权证");
+      LODOP.ADD_PRINT_TEXT(79,127,76,63,this.formItem.landName7);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(163,129,76,63,this.formItem.landNO7);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(247,127,76,63,this.formItem.realArea7);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(331,127,76,63,this.formItem.ifBasefarm7);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(80,227,76,63,this.formItem.landName6);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(164,229,76,63,this.formItem.landNO6);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(248,227,76,63,this.formItem.realArea6);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(332,227,76,63,this.formItem.ifBasefarm6);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(80,329,76,63,this.formItem.landName5);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(164,331,76,63,this.formItem.landNO5);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(163,432,76,63,this.formItem.landNO4);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(79,430,76,63,this.formItem.landName4);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(247,430,76,63,this.formItem.realArea4);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(248,329,76,63,this.formItem.realArea5);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(332,329,76,63,this.formItem.ifBasefarm5);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(331,430,76,63,this.formItem.ifBasefarm4);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(80,532,76,63,this.formItem.landName3);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(164,534,76,63,this.formItem.landNO3);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(248,532,76,63,this.formItem.realArea3);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(332,532,76,63,this.formItem.ifBasefarm3);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(81,742,76,63,this.formItem.landName);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(165,744,76,63,this.formItem.landNO);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(249,742,76,63,this.formItem.realArea);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(333,742,76,63,this.formItem.ifBasefarm);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(81,638,76,63,this.formItem.landName2);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(165,640,76,63,this.formItem.landNO2);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(249,638,76,63,this.formItem.realArea2);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(333,638,76,63,this.formItem.ifBasefarm2);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,751,100,20,this.formItem.east);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,730,100,20,this.formItem.west);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,705,100,20,this.formItem.south);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,680,100,20,this.formItem.north);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,648,100,20,this.formItem.east2);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,626,100,20,this.formItem.west2);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,602,100,20,this.formItem.south2);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,577,100,20,this.formItem.north2);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      
+      LODOP.ADD_PRINT_TEXT(456,543,100,20,this.formItem.east3);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,521,100,20,this.formItem.west3);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,498,100,20,this.formItem.south3);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,475,100,20,this.formItem.north3);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,438,100,20,this.formItem.east4);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,418,100,20,this.formItem.west4);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,398,100,20,this.formItem.south4);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(455,373,100,20,this.formItem.north5);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,336,100,20,this.formItem.east5);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,313,100,20,this.formItem.west5);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,291,100,20,this.formItem.south5);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,267,100,20,this.formItem.north5);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,232,100,20,this.formItem.east6);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,210,100,20,this.formItem.west6);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,185,100,20,this.formItem.south6);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(456,163,100,20,this.formItem.north6);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(454,129,100,20,this.formItem.east7);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(454,107,100,20,this.formItem.west7);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(454,84,100,20,this.formItem.south7);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(454,62,100,20,this.formItem.north7);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 
-
+      LODOP.ADD_PRINT_TEXT(722,422,76,63,this.formItem.landName11);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(806,424,76,63,this.formItem.landNO11);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(890,422,76,63,this.formItem.realArea11);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(974,422,76,63,this.formItem.ifBasefarm11);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(975,524,76,63,this.formItem.ifBasefarm10);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(896,524,76,63,this.formItem.realArea10);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(807,526,76,63,this.formItem.landNO10);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(723,524,76,63,this.formItem.landName10);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(724,630,76,63,this.formItem.landName9);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(808,632,76,63,this.formItem.landNO9);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(892,630,76,63,this.formItem.realArea9);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(976,630,76,63,this.formItem.ifBasefarm9);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(978,738,76,63,this.formItem.ifBasefarm8);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(892,734,76,63,this.formItem.realArea8);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(808,736,76,63,this.formItem.landNO8);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(724,734,76,63,this.formItem.landName8);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,750,100,20,this.formItem.east8);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,729,100,20,this.formItem.west8);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,704,100,20,this.formItem.south8);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,679,100,20,this.formItem.north8);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,648,100,20,this.formItem.east9);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,626,100,20,this.formItem.west9);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,602,100,20,this.formItem.south9);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,577,100,20,this.formItem.north9);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,543,100,20,this.formItem.east10);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,521,100,20,this.formItem.west10);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,498,100,20,this.formItem.south10);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1096,475,100,20,this.formItem.north10);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,440,100,20,this.formItem.east11);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,417,100,20,this.formItem.west11);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1095,393,100,20,this.formItem.south11);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1094,372,100,20,this.formItem.north11);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1102,104,76,41,this.formItem.issuingDate.getDate());
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(1056,104,76,33,this.formItem.issuingDate.getMonth() + 1);
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
+      LODOP.ADD_PRINT_TEXT(988,106,76,33,this.formItem.issuingDate.getFullYear());
+      LODOP.SET_PRINT_STYLEA(0,"FontSize",13);
+      LODOP.SET_PRINT_STYLEA(0,"Angle",-90);
 
 
     }

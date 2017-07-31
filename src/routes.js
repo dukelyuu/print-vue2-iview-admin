@@ -31,7 +31,7 @@ let routes = [{
     children: [
         { path: '/main', component: Main, name: '主页', hidden: true },
         {
-            path: '/print', component: printpage, name: '打印证件',
+            path: '/print', component: printpage, name: '打印证书',
             children: [
                 // UserHome will be rendered inside User's <router-view>
                 // when /user/:id is matched
@@ -43,10 +43,10 @@ let routes = [{
                 //         require(["./pages/print/secondpage.vue"], resolve)
                 //     }
                 // },
-                { path: 'page1', name: '打印第3页', component: function (resolve) {
+                { path: 'page1', name: '打印第2页', component: function (resolve) {
                         require(["./pages/print/thirdpage.vue"], resolve)
                     } },
-                { path: 'page2', name: '打印第4页', component: function (resolve) {
+                { path: 'page2', name: '打印第3页', component: function (resolve) {
                         require(["./pages/print/fourthpage.vue"], resolve)
                     } }
                
@@ -75,7 +75,7 @@ let routes = [{
 //         { path: '/page6', component: Page6, name: '证书打印' }
 //     ]
 // },
-{
+/*{
     path: '/',
     component: Home,
     name: '报表',
@@ -83,7 +83,7 @@ let routes = [{
     children: [
         { path: '/echarts', component: echarts, name: 'echarts' }
     ]
-},
+},*/
 {
     path: '*',
     hidden: true,
