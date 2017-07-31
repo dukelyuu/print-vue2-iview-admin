@@ -35,7 +35,7 @@ function getLodop(oOBJECT, oEMBED) {
         //清理原例子内的object或embed元素，避免乱提示：
         if (oEMBED && oEMBED.parentNode) oEMBED.parentNode.removeChild(oEMBED);
         if (oOBJECT && oOBJECT.parentNode) oOBJECT.parentNode.removeChild(oOBJECT);
-
+        LODOP.SET_LICENSES("","647464550565952565559561289003","688858710010010811411756128900","");
         return LODOP;
     } catch (err) { alert("getLodop出错:" + err); };
 };
